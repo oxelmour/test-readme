@@ -5,27 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Informatika.id - Platform Belajar Informatika Terbaik Indonesia</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Lora', serif;
         }
 
         body {
-            background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
-            color: #1a1a1a;
+            background: linear-gradient(135deg, #f5f3f0 0%, #ede9e4 100%);
+            color: #3d3d3d;
             overflow-x: hidden;
         }
 
         /* Navbar */
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(139, 115, 85, 0.15);
             position: sticky;
             top: 0;
             z-index: 50;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
         }
 
         .navbar-brand {
@@ -33,115 +33,129 @@
             align-items: center;
             gap: 12px;
             font-weight: 700;
-            font-size: 1.2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 1.3rem;
+            color: #5a4a3a;
+            font-family: 'Crimson Text', serif;
+            letter-spacing: 1px;
+        }
+
+        .navbar-subtitle {
+            color: #8b7355;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Decorative Line */
+        .decorative-line {
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #8b7355 0%, #c9a876 50%, #8b7355 100%);
+            margin: 20px auto;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background: linear-gradient(135deg, #e8dcc8 0%, #d9cfc0 50%, #e0d5c7 100%);
             position: relative;
             overflow: hidden;
-            padding: 80px 20px;
+            padding: 100px 20px;
+            border-bottom: 1px solid rgba(139, 115, 85, 0.1);
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(201, 168, 118, 0.08) 0%, transparent 70%);
             border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
         }
 
         .hero::after {
             content: '';
             position: absolute;
-            bottom: -30%;
-            left: -5%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            bottom: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(201, 168, 118, 0.06) 0%, transparent 70%);
             border-radius: 50%;
-            animation: float 8s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(20px); }
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
-            color: white;
+            color: #3d3d3d;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
+            font-size: 3.8rem;
+            font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+            letter-spacing: -0.3px;
+            font-family: 'Crimson Text', serif;
+            color: #5a4a3a;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            opacity: 0.95;
+            font-size: 1.1rem;
+            color: #6b5d52;
             margin-bottom: 40px;
-            line-height: 1.6;
+            line-height: 1.8;
+            font-weight: 400;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 16px;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn-primary {
-            background: white;
-            color: #667eea;
-            padding: 14px 32px;
-            border-radius: 10px;
+            background: #8b7355;
+            color: #f5f3f0;
+            padding: 14px 36px;
+            border-radius: 2px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.15);
         }
 
         .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            background: #6b5545;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(139, 115, 85, 0.25);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 10px;
+            background: transparent;
+            color: #8b7355;
+            padding: 14px 36px;
+            border-radius: 2px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
-            border: 2px solid white;
+            border: 2px solid #8b7355;
             cursor: pointer;
-            backdrop-filter: blur(10px);
+            letter-spacing: 0.5px;
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-4px);
+            background: #8b7355;
+            color: #f5f3f0;
+            transform: translateY(-2px);
         }
 
         /* Featured Box */
@@ -153,65 +167,94 @@
 
         .featured-card {
             background: white;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(102, 126, 234, 0.1);
+            border-radius: 0;
+            padding: 50px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e0d8;
+            border-top: 4px solid #8b7355;
+            position: relative;
+        }
+
+        .featured-card::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #c9a876;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .featured-card::after {
+            content: '';
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #c9a876;
+            border-left: none;
+            border-top: none;
         }
 
         .featured-card h2 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             margin-bottom: 16px;
-            color: #1a1a1a;
+            color: #5a4a3a;
+            font-family: 'Crimson Text', serif;
         }
 
         .featured-card p {
             font-size: 1rem;
-            color: #64748b;
-            margin-bottom: 24px;
-            line-height: 1.6;
+            color: #6b5d52;
+            margin-bottom: 28px;
+            line-height: 1.8;
         }
 
         /* Section */
         .section {
-            padding: 80px 20px;
+            padding: 100px 20px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
         }
 
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-            color: #1a1a1a;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #5a4a3a;
+            font-family: 'Crimson Text', serif;
         }
 
         .section-subtitle {
-            font-size: 1.1rem;
-            color: #64748b;
-            max-width: 600px;
+            font-size: 1.05rem;
+            color: #6b5d52;
+            max-width: 700px;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.8;
+            font-weight: 400;
         }
 
         /* Resource Grid */
         .resource-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 28px;
+            gap: 32px;
         }
 
         .resource-card {
             background: white;
-            border-radius: 14px;
-            padding: 32px;
-            border: 1px solid #e5e7eb;
+            border-radius: 0;
+            padding: 40px;
+            border: 1px solid #e5e0d8;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -226,17 +269,17 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 3px;
+            background: #c9a876;
             transform: scaleX(0);
             transform-origin: left;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
         }
 
         .resource-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.15);
-            border-color: #667eea;
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(139, 115, 85, 0.12);
+            border-color: #c9a876;
         }
 
         .resource-card:hover::before {
@@ -246,34 +289,37 @@
         .resource-icon {
             width: 56px;
             height: 56px;
-            border-radius: 12px;
+            border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             font-size: 28px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #e8dcc8 0%, #d9cfc0 100%);
+            color: #8b7355;
+            border: 2px solid #c9a876;
         }
 
         .resource-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #5a4a3a;
             margin-bottom: 8px;
+            font-family: 'Crimson Text', serif;
         }
 
         .resource-instructor {
             font-size: 0.9rem;
-            color: #667eea;
+            color: #8b7355;
             font-weight: 600;
             margin-bottom: 16px;
+            letter-spacing: 0.3px;
         }
 
         .resource-description {
             font-size: 0.95rem;
-            color: #64748b;
-            line-height: 1.6;
+            color: #6b5d52;
+            line-height: 1.7;
             margin-bottom: 24px;
             flex-grow: 1;
         }
@@ -281,12 +327,14 @@
         .resource-type {
             display: inline-block;
             padding: 6px 14px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            border-radius: 8px;
+            background: #f5f3f0;
+            border-radius: 0;
             font-size: 0.8rem;
-            color: #667eea;
+            color: #8b7355;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            border: 1px solid #e5e0d8;
+            letter-spacing: 0.3px;
         }
 
         .resource-links {
@@ -301,86 +349,101 @@
             align-items: center;
             gap: 6px;
             padding: 8px 14px;
-            background: #f0f2f5;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
+            background: #f5f3f0;
+            border: 1px solid #d9cfc0;
+            border-radius: 0;
             text-decoration: none;
-            color: #1a1a1a;
+            color: #5a4a3a;
             font-size: 0.85rem;
             font-weight: 600;
             transition: all 0.2s ease;
         }
 
         .link-btn:hover {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-color: transparent;
+            background: #8b7355;
+            color: #f5f3f0;
+            border-color: #8b7355;
             transform: translateY(-2px);
         }
 
         /* Additional Resources */
         .additional-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #f0f2f5 100%);
-            padding: 80px 20px;
+            background: linear-gradient(135deg, #f5f3f0 0%, #e8dcc8 100%);
+            padding: 100px 20px;
+            border-top: 1px solid rgba(139, 115, 85, 0.1);
+            border-bottom: 1px solid rgba(139, 115, 85, 0.1);
         }
 
         .additional-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
+            gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .additional-card {
             background: white;
-            border-radius: 14px;
-            padding: 40px;
-            border: 1px solid #e5e7eb;
+            border-radius: 0;
+            padding: 45px;
+            border: 1px solid #e5e0d8;
             transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .additional-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #c9a876;
         }
 
         .additional-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.12);
-            border-color: #667eea;
+            box-shadow: 0 12px 28px rgba(139, 115, 85, 0.1);
         }
 
         .additional-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 12px;
+            color: #5a4a3a;
+            margin-bottom: 14px;
+            font-family: 'Crimson Text', serif;
         }
 
         .additional-card p {
             font-size: 0.95rem;
-            color: #64748b;
-            margin-bottom: 20px;
-            line-height: 1.6;
+            color: #6b5d52;
+            margin-bottom: 24px;
+            line-height: 1.7;
         }
 
         .additional-card a {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: #667eea;
+            color: #8b7355;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.2s ease;
+            letter-spacing: 0.3px;
         }
 
         .additional-card a:hover {
             gap: 12px;
-            color: #764ba2;
+            color: #5a4a3a;
         }
 
         /* Footer */
         .footer {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: #cbd5e1;
-            padding: 60px 20px 30px;
+            background: linear-gradient(135deg, #5a4a3a 0%, #4a3a2a 100%);
+            color: #d9cfc0;
+            padding: 70px 20px 30px;
             text-align: center;
+            border-top: 1px solid rgba(201, 168, 118, 0.2);
         }
 
         .footer p {
@@ -398,11 +461,15 @@
             .resource-grid {
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
+
+            .section-title {
+                font-size: 2.4rem;
+            }
         }
 
         @media (max-width: 768px) {
             .hero {
-                padding: 60px 16px;
+                padding: 70px 16px;
             }
 
             .hero h1 {
@@ -414,7 +481,7 @@
             }
 
             .featured-card {
-                padding: 28px;
+                padding: 32px;
             }
 
             .featured-section {
@@ -422,7 +489,7 @@
             }
 
             .section {
-                padding: 60px 16px;
+                padding: 70px 16px;
             }
 
             .section-title {
@@ -431,25 +498,25 @@
 
             .resource-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 24px;
             }
 
             .resource-card {
-                padding: 24px;
+                padding: 28px;
             }
 
             .additional-grid {
-                gap: 20px;
+                gap: 28px;
             }
 
             .additional-card {
-                padding: 28px;
+                padding: 32px;
             }
         }
 
         @media (max-width: 480px) {
             .hero {
-                padding: 40px 12px;
+                padding: 50px 12px;
             }
 
             .hero h1 {
@@ -494,20 +561,11 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex items-center justify-between">
             <div class="navbar-brand">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7V12C2 18.6 7.4 24 12 24C16.6 24 22 18.6 22 12V7L12 2Z" stroke="url(#grad1)" stroke-width="2" fill="none"/>
-                    <defs>
-                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                </svg>
-                Informatika.id
+                ◆ Informatika.id
             </div>
-            <div class="text-sm font-medium text-gray-600">Platform Belajar Terbaik</div>
+            <div class="navbar-subtitle">Platform Belajar Terbaik</div>
         </div>
     </nav>
 
@@ -515,6 +573,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Materi Kuliah Informatika<br>Berkualitas Tinggi</h1>
+            <div class="decorative-line"></div>
             <p>Akses ribuan jam video pembelajaran, PDF, dan materi kuliah gratis dari institusi terkemuka seperti ITB, UI, dan universitas terbaik di seluruh Indonesia.</p>
             <div class="hero-buttons">
                 <a href="#resources" class="btn-primary">Jelajahi Materi</a>
@@ -526,7 +585,7 @@
     <!-- Featured Section -->
     <section class="featured-section">
         <div class="featured-card">
-            <h2>🎯 Akses Semua Materi Sekaligus</h2>
+            <h2>Akses Semua Materi Sekaligus</h2>
             <p>Koleksi lengkap materi jurusan Ilmu Komputer tahun 2025 dalam satu tempat. Ribuan file PDF, video pembelajaran, dan sumber daya akademik lainnya tersedia untuk diunduh gratis.</p>
             <a href="https://s.id/ArsipMateriJurusanIlmuKomputer2025" target="_blank" class="btn-primary" style="display: inline-block;">Buka Arsip Lengkap →</a>
         </div>
@@ -536,22 +595,18 @@
     <section id="resources" class="section">
         <div class="section-header">
             <h2 class="section-title">Mata Kuliah Utama</h2>
+            <div class="decorative-line"></div>
             <p class="section-subtitle">Enam mata kuliah fundamental dengan sumber belajar berkualitas tinggi dari pengajar berpengalaman dan institusi ternama.</p>
         </div>
 
         <div class="resource-grid">
             <!-- Matematika Diskrit -->
             <div class="resource-card">
-                <div class="resource-icon">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 4H24C25.1 4 26 4.9 26 6V26C26 27.1 25.1 28 24 28H8C6.9 28 6 27.1 6 26V6C6 4.9 6.9 4 8 4Z" fill="white"/>
-                        <path d="M10 10H22M10 16H22M10 22H18" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </div>
+                <div class="resource-icon">∑</div>
                 <h3 class="resource-title">Matematika Diskrit</h3>
                 <p class="resource-instructor">Rinaldi Munir • ITB</p>
                 <p class="resource-description">Teori himpunan, logika proposisional, relasi, fungsi, kombinatorik, dan teori graf. Fondasi matematika untuk ilmu komputer.</p>
-                <span class="resource-type">📹 Video + 📄 PDF</span>
+                <span class="resource-type">📹 VIDEO + 📄 PDF</span>
                 <div class="resource-links">
                     <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3pMu_kUSlzPQwi49dSRpUbb" target="_blank" class="link-btn">▶ YouTube</a>
                     <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/Matdis/matdis.htm" target="_blank" class="link-btn">📄 Materi</a>
@@ -560,23 +615,11 @@
 
             <!-- Aljabar Linier -->
             <div class="resource-card">
-                <div class="resource-icon">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="4" y="4" width="8" height="8" fill="white"/>
-                        <rect x="14" y="4" width="8" height="8" fill="white"/>
-                        <rect x="24" y="4" width="4" height="8" fill="white"/>
-                        <rect x="4" y="14" width="8" height="8" fill="white"/>
-                        <rect x="14" y="14" width="8" height="8" fill="white"/>
-                        <rect x="24" y="14" width="4" height="8" fill="white"/>
-                        <rect x="4" y="24" width="8" height="4" fill="white"/>
-                        <rect x="14" y="24" width="8" height="4" fill="white"/>
-                        <rect x="24" y="24" width="4" height="4" fill="white"/>
-                    </svg>
-                </div>
+                <div class="resource-icon">⊞</div>
                 <h3 class="resource-title">Aljabar Linier</h3>
                 <p class="resource-instructor">Rinaldi Munir • ITB & UI OCW</p>
                 <p class="resource-description">Matriks, vektor, sistem persamaan linier, eigenvalue, dan transformasi linier. Esensial untuk grafis komputer dan machine learning.</p>
-                <span class="resource-type">📹 Video + 📄 PDF</span>
+                <span class="resource-type">📹 VIDEO + 📄 PDF</span>
                 <div class="resource-links">
                     <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3qTl3QVfFBVR9IbC9csY1Cg" target="_blank" class="link-btn">▶ YouTube</a>
                     <a href="https://ocw.ui.ac.id/course/view.php?id=32" target="_blank" class="link-btn">🎓 OCW UI</a>
@@ -585,19 +628,11 @@
 
             <!-- Struktur Data -->
             <div class="resource-card">
-                <div class="resource-icon">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="8" cy="8" r="4" fill="white"/>
-                        <circle cx="24" cy="8" r="4" fill="white"/>
-                        <circle cx="16" cy="20" r="4" fill="white"/>
-                        <line x1="8" y1="12" x2="16" y2="16" stroke="white" stroke-width="2"/>
-                        <line x1="24" y1="12" x2="16" y2="16" stroke="white" stroke-width="2"/>
-                    </svg>
-                </div>
+                <div class="resource-icon">◆</div>
                 <h3 class="resource-title">Struktur Data</h3>
                 <p class="resource-instructor">Indonesia Belajar • Rekaman Kuliah</p>
                 <p class="resource-description">Array, linked list, stack, queue, tree, graph, dan analisis kompleksitas algoritma. Materi kuliah lengkap dan mendalam.</p>
-                <span class="resource-type">📹 Video Tutorial</span>
+                <span class="resource-type">📹 VIDEO TUTORIAL</span>
                 <div class="resource-links">
                     <a href="https://www.youtube.com/playlist?list=PL2O3HdJI4voEOEB5ecXtCTayzXSB8b3KZ" target="_blank" class="link-btn">▶ Tonton Playlist</a>
                 </div>
@@ -605,17 +640,11 @@
 
             <!-- Algoritma Pemrograman -->
             <div class="resource-card">
-                <div class="resource-icon">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 8L12 4L18 8V16L12 20L6 16V8Z" fill="white"/>
-                        <path d="M18 8L24 4L30 8V16L24 20L18 16V8Z" fill="white" opacity="0.6"/>
-                        <path d="M12 20L18 16L24 20V28L18 32L12 28V20Z" fill="white" opacity="0.8"/>
-                    </svg>
-                </div>
+                <div class="resource-icon">⟡</div>
                 <h3 class="resource-title">Algoritma Pemrograman</h3>
                 <p class="resource-instructor">Rinaldi Munir & Sandhika Galih</p>
                 <p class="resource-description">Notasi algoritma, pseudocode, analisis kompleksitas, dan strategi pemecahan masalah. Dari dasar hingga advanced.</p>
-                <span class="resource-type">📹 Video + 📄 PDF</span>
+                <span class="resource-type">📹 VIDEO + 📄 PDF</span>
                 <div class="resource-links">
                     <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3pdFjgNZU9sO3Lg0uezCTeW" target="_blank" class="link-btn">▶ Advanced</a>
                     <a href="https://www.youtube.com/playlist?list=PLFIM0718LjIWuXvO0S0I0v_6X43I7vI1v" target="_blank" class="link-btn">▶ Basic</a>
@@ -624,17 +653,11 @@
 
             <!-- Basis Data -->
             <div class="resource-card">
-                <div class="resource-icon">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="4" y="6" width="24" height="4" rx="2" fill="white"/>
-                        <rect x="4" y="14" width="24" height="4" rx="2" fill="white"/>
-                        <rect x="4" y="22" width="24" height="4" rx="2" fill="white"/>
-                    </svg>
-                </div>
+                <div class="resource-icon">≡</div>
                 <h3 class="resource-title">Basis Data</h3>
                 <p class="resource-instructor">Web Programming UNPAS & UINSU</p>
                 <p class="resource-description">SQL, relational database, normalisasi, perancangan basis data, dan optimasi query. Praktik langsung dengan contoh nyata.</p>
-                <span class="resource-type">📹 Video + 📄 PDF</span>
+                <span class="resource-type">📹 VIDEO + 📄 PDF</span>
                 <div class="resource-links">
                     <a href="https://www.youtube.com/playlist?list=PLFIM0718LjIVuXvO0S0I0v_6X43I7vI1v" target="_blank" class="link-btn">▶ YouTube SQL</a>
                     <a href="http://repository.uinsu.ac.id/14206/1/Buku%20Digital%20-%20BUKU%20AJAR%20BASIS%20DATA.pdf" target="_blank" class="link-btn">📄 Buku Ajar</a>
@@ -643,17 +666,11 @@
 
             <!-- Organisasi & Arsitektur Komputer -->
             <div class="resource-card">
-                <div class="resource-icon">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="4" y="4" width="24" height="18" rx="2" fill="white"/>
-                        <rect x="8" y="24" width="16" height="2" fill="white"/>
-                        <circle cx="16" cy="28" r="1.5" fill="white"/>
-                    </svg>
-                </div>
+                <div class="resource-icon">⊟</div>
                 <h3 class="resource-title">Org. & Arsitektur Komputer</h3>
                 <p class="resource-instructor">Rinaldi Munir & Tutorial Mas Arif</p>
                 <p class="resource-description">Arsitektur Von Neumann, CPU, memori, I/O system, dan organisasi hardware. Pemahaman mendalam tentang cara kerja komputer.</p>
-                <span class="resource-type">📹 Video + 📄 PDF</span>
+                <span class="resource-type">📹 VIDEO + 📄 PDF</span>
                 <div class="resource-links">
                     <a href="https://www.youtube.com/playlist?list=PLOOyvLFiJe22zDKhVwxK8jK1v_sUynCxQ" target="_blank" class="link-btn">▶ YouTube</a>
                     <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/PTI/2013-2014/KU1072_SistemKomputerdanJaringan.pdf" target="_blank" class="link-btn">📄 Materi PDF</a>
@@ -666,17 +683,18 @@
     <section class="additional-section">
         <div class="section-header">
             <h2 class="section-title">Sumber Daya Tambahan</h2>
+            <div class="decorative-line"></div>
             <p class="section-subtitle">Portal resmi dan website akademik dari institusi terkemuka Indonesia.</p>
         </div>
 
         <div class="additional-grid">
             <div class="additional-card">
-                <h3>🏫 UI Open CourseWare</h3>
+                <h3>UI Open CourseWare</h3>
                 <p>Portal resmi Universitas Indonesia yang menyediakan materi kuliah gratis dari berbagai pakar dan dosen berpengalaman di bidangnya masing-masing.</p>
                 <a href="https://ocw.ui.ac.id/course/index.php?categoryid=12" target="_blank">Kunjungi OCW UI →</a>
             </div>
             <div class="additional-card">
-                <h3>👨‍🏫 Rinaldi Munir Homepage</h3>
+                <h3>Rinaldi Munir Homepage</h3>
                 <p>Website personal Rinaldi Munir dengan koleksi lengkap materi kuliah, slide presentasi, video, dan berbagai sumber daya akademik dari ITB.</p>
                 <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/" target="_blank">Kunjungi Homepage →</a>
             </div>
@@ -685,7 +703,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>✨ Semua sumber belajar di atas bersifat gratis dan dapat diakses oleh siapa saja tanpa batasan.</p>
+        <p>✦ Semua sumber belajar di atas bersifat gratis dan dapat diakses oleh siapa saja tanpa batasan.</p>
         <p>Dibuat dengan dedikasi untuk mendukung pembelajaran informatika berkualitas di Indonesia</p>
     </footer>
 

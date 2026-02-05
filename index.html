@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Sumber Belajar Informatika - Kumpulan Materi Gratis</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -318,25 +318,194 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+            }
+
+            .resource-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 12px 16px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 16px;
             }
 
             .hero p {
-                font-size: 1rem;
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+
+            .hero {
+                padding: 40px 16px;
             }
 
             .section-title {
                 font-size: 1.5rem;
             }
 
+            .section-subtitle {
+                font-size: 0.9rem;
+            }
+
             .resource-grid {
                 grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .resource-card {
+                padding: 20px;
             }
 
             .featured-box {
-                padding: 24px;
+                padding: 20px;
+                margin: 30px 0;
+            }
+
+            .featured-box h2 {
+                font-size: 1.2rem;
+            }
+
+            .featured-box p {
+                font-size: 0.9rem;
+            }
+
+            .featured-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .resource-title {
+                font-size: 1rem;
+            }
+
+            .resource-instructor {
+                font-size: 0.8rem;
+            }
+
+            .resource-description {
+                font-size: 0.9rem;
+            }
+
+            .link-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+
+            .additional-resources {
+                padding: 24px 16px;
+            }
+
+            .additional-resources h2 {
+                font-size: 1.3rem;
+                margin-bottom: 20px;
+            }
+
+            .grid.grid-cols-1.md\:grid-cols-2 {
+                gap: 16px;
+            }
+
+            .resource-link-box {
+                padding: 16px;
+            }
+
+            .resource-link-box h3 {
+                font-size: 1rem;
+            }
+
+            .resource-link-box p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 10px 12px;
+            }
+
+            .navbar span {
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+                line-height: 1.2;
+                margin-bottom: 12px;
+            }
+
+            .hero p {
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 30px 12px;
+            }
+
+            .max-w-7xl {
+                padding: 0 12px;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .resource-card {
+                padding: 16px;
+            }
+
+            .resource-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .featured-box {
+                padding: 16px;
+            }
+
+            .featured-box h2 {
+                font-size: 1rem;
+            }
+
+            .featured-box p {
+                font-size: 0.85rem;
+            }
+
+            .featured-btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
+            .resource-links {
+                gap: 6px;
+            }
+
+            .link-btn {
+                padding: 5px 10px;
+                font-size: 0.75rem;
+            }
+
+            .additional-resources {
+                padding: 16px 12px;
+            }
+
+            .additional-resources h2 {
+                font-size: 1.2rem;
+            }
+
+            .resource-link-box {
+                padding: 12px;
+            }
+
+            .footer p {
+                font-size: 0.85rem;
             }
         }
 
@@ -360,7 +529,7 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold">📚</div>
                 <span class="font-bold text-lg text-gray-900">Informatika.id</span>
@@ -370,8 +539,8 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero py-24 md:py-32">
-        <div class="max-w-7xl mx-auto px-6">
+    <section class="hero py-20 sm:py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="hero-content fade-in">
                 <h1>Materi Kuliah Informatika<br>Terbaik Indonesia</h1>
                 <p>Akses ribuan jam video pembelajaran, PDF, dan materi kuliah gratis dari institusi terkemuka seperti ITB, UI, dan universitas lainnya di seluruh Indonesia.</p>
@@ -388,7 +557,7 @@
     </section>
 
     <!-- Featured Section -->
-    <section id="featured" class="max-w-7xl mx-auto px-6">
+    <section id="featured" class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="featured-box">
             <div class="featured-box-content">
                 <h2>🎯 Akses Semua Materi Sekaligus</h2>
@@ -402,7 +571,7 @@
     </section>
 
     <!-- Main Resources Section -->
-    <section id="resources" class="max-w-7xl mx-auto px-6 py-20">
+    <section id="resources" class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20">
         <div class="section-header">
             <h2 class="section-title">Mata Kuliah Utama</h2>
             <p class="section-subtitle">Enam mata kuliah fundamental dengan sumber belajar berkualitas tinggi dari pengajar berpengalaman.</p>
@@ -511,7 +680,7 @@
     </section>
 
     <!-- Additional Resources -->
-    <section class="max-w-7xl mx-auto px-6 py-20">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20">
         <div class="additional-resources">
             <h2>📚 Sumber Daya Tambahan</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-24">
@@ -535,7 +704,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <p>✨ Semua sumber belajar di atas bersifat gratis dan dapat diakses oleh siapa saja tanpa batasan.</p>
             <p style="margin-top: 16px; opacity: 0.7;">Dibuat dengan dedikasi untuk mendukung pembelajaran informatika berkualitas di Indonesia</p>
         </div>

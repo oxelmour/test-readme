@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumber Belajar Informatika - Kumpulan Materi Gratis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            color: #1a1a1a;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Featured Section */
+        .featured-box {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 12px;
+            padding: 32px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin: 40px 0;
+        }
+
+        .featured-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .featured-box-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .featured-box h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .featured-box p {
+            font-size: 1rem;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .featured-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            color: #3b82f6;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .featured-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Resource Cards */
+        .resource-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .resource-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 12px 32px rgba(59, 130, 246, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .resource-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .icon-math { background: #dbeafe; }
+        .icon-data { background: #dcfce7; }
+        .icon-algo { background: #fef3c7; }
+        .icon-sys { background: #fce7f3; }
+
+        .resource-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .resource-instructor {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .resource-description {
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .resource-type {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #f1f5f9;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: #475569;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .resource-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #334155;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .link-btn:hover {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+
+        /* Section Headers */
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: #64748b;
+            max-width: 600px;
+        }
+
+        /* Additional Resources */
+        .additional-resources {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+        .additional-resources h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 32px;
+        }
+
+        .resource-link-box {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link-box:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.1);
+        }
+
+        .resource-link-box h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .resource-link-box p {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .resource-link-box a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .resource-link-box a:hover {
+            gap: 10px;
+            color: #2563eb;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #1e293b;
+        }
+
+        .footer p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Grid */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-box {
+                padding: 24px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold">📚</div>
+                <span class="font-bold text-lg text-gray-900">Informatika.id</span>
+            </div>
+            <div class="text-sm text-gray-600">Sumber Belajar Gratis</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="hero-content fade-in">
+                <h1>Materi Kuliah Informatika<br>Terbaik Indonesia</h1>
+                <p>Akses ribuan jam video pembelajaran, PDF, dan materi kuliah gratis dari institusi terkemuka seperti ITB, UI, dan universitas lainnya di seluruh Indonesia.</p>
+                <div class="flex gap-4 mt-8">
+                    <a href="#resources" class="px-6 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition">
+                        Jelajahi Materi
+                    </a>
+                    <a href="#featured" class="px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition">
+                        Lihat Arsip Lengkap
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section id="featured" class="max-w-7xl mx-auto px-6">
+        <div class="featured-box">
+            <div class="featured-box-content">
+                <h2>🎯 Akses Semua Materi Sekaligus</h2>
+                <p>Koleksi lengkap materi jurusan Ilmu Komputer tahun 2025 dalam satu tempat. Ribuan file PDF, video, dan sumber belajar lainnya tersedia untuk diunduh.</p>
+                <a href="https://s.id/ArsipMateriJurusanIlmuKomputer2025" target="_blank" class="featured-btn">
+                    Buka Arsip Lengkap
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Resources Section -->
+    <section id="resources" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="section-header">
+            <h2 class="section-title">Mata Kuliah Utama</h2>
+            <p class="section-subtitle">Enam mata kuliah fundamental dengan sumber belajar berkualitas tinggi dari pengajar berpengalaman.</p>
+        </div>
+
+        <div class="resource-grid">
+            <!-- Matematika Diskrit -->
+            <div class="resource-card fade-in">
+                <div class="resource-icon icon-math">🔢</div>
+                <h3 class="resource-title">Matematika Diskrit</h3>
+                <p class="resource-instructor">Rinaldi Munir • ITB</p>
+                <p class="resource-description">Teori himpunan, logika proposisional, relasi, fungsi, kombinatorik, dan teori graf. Fondasi matematika untuk ilmu komputer.</p>
+                <span class="resource-type">📹 Video + 📄 PDF</span>
+                <div class="resource-links">
+                    <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3pMu_kUSlzPQwi49dSRpUbb" target="_blank" class="link-btn">
+                        ▶ YouTube
+                    </a>
+                    <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/Matdis/matdis.htm" target="_blank" class="link-btn">
+                        📄 Materi
+                    </a>
+                </div>
+            </div>
+
+            <!-- Aljabar Linier -->
+            <div class="resource-card fade-in">
+                <div class="resource-icon icon-math">⬜</div>
+                <h3 class="resource-title">Aljabar Linier</h3>
+                <p class="resource-instructor">Rinaldi Munir • ITB & UI OCW</p>
+                <p class="resource-description">Matriks, vektor, sistem persamaan linier, eigenvalue, dan transformasi linier. Esensial untuk grafis komputer dan machine learning.</p>
+                <span class="resource-type">📹 Video + 📄 PDF</span>
+                <div class="resource-links">
+                    <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3qTl3QVfFBVR9IbC9csY1Cg" target="_blank" class="link-btn">
+                        ▶ YouTube
+                    </a>
+                    <a href="https://ocw.ui.ac.id/course/view.php?id=32" target="_blank" class="link-btn">
+                        🎓 OCW UI
+                    </a>
+                </div>
+            </div>
+
+            <!-- Struktur Data -->
+            <div class="resource-card fade-in">
+                <div class="resource-icon icon-data">🌳</div>
+                <h3 class="resource-title">Struktur Data</h3>
+                <p class="resource-instructor">Kelas Terbuka • Faqihza Mukhlish</p>
+                <p class="resource-description">Array, linked list, stack, queue, tree, graph, dan hash table. Penjelasan mendalam dengan visualisasi interaktif.</p>
+                <span class="resource-type">📹 Video Tutorial</span>
+                <div class="resource-links">
+                    <a href="https://www.youtube.com/playlist?list=PLZCj7-8uX24X7zZ-S_L6O9-4o6uG_S0q9" target="_blank" class="link-btn primary">
+                        ▶ Tonton Playlist
+                    </a>
+                </div>
+            </div>
+
+            <!-- Algoritma Pemrograman -->
+            <div class="resource-card fade-in">
+                <div class="resource-icon icon-algo">⚙️</div>
+                <h3 class="resource-title">Algoritma Pemrograman</h3>
+                <p class="resource-instructor">Rinaldi Munir & Sandhika Galih</p>
+                <p class="resource-description">Notasi algoritma, pseudocode, analisis kompleksitas, dan strategi pemecahan masalah. Dari dasar hingga advanced.</p>
+                <span class="resource-type">📹 Video + 📄 PDF</span>
+                <div class="resource-links">
+                    <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3pdFjgNZU9sO3Lg0uezCTeW" target="_blank" class="link-btn">
+                        ▶ Advanced
+                    </a>
+                    <a href="https://www.youtube.com/playlist?list=PLFIM0718LjIWuXvO0S0I0v_6X43I7vI1v" target="_blank" class="link-btn">
+                        ▶ Basic
+                    </a>
+                </div>
+            </div>
+
+            <!-- Basis Data -->
+            <div class="resource-card fade-in">
+                <div class="resource-icon icon-data">🗄️</div>
+                <h3 class="resource-title">Basis Data</h3>
+                <p class="resource-instructor">Web Programming UNPAS & UINSU</p>
+                <p class="resource-description">SQL, relational database, normalisasi, perancangan basis data, dan optimasi query. Praktik langsung dengan contoh nyata.</p>
+                <span class="resource-type">📹 Video + 📄 PDF</span>
+                <div class="resource-links">
+                    <a href="https://www.youtube.com/playlist?list=PLFIM0718LjIVuXvO0S0I0v_6X43I7vI1v" target="_blank" class="link-btn">
+                        ▶ YouTube SQL
+                    </a>
+                    <a href="http://repository.uinsu.ac.id/14206/1/Buku%20Digital%20-%20BUKU%20AJAR%20BASIS%20DATA.pdf" target="_blank" class="link-btn">
+                        📄 Buku Ajar
+                    </a>
+                </div>
+            </div>
+
+            <!-- Organisasi & Arsitektur Komputer -->
+            <div class="resource-card fade-in">
+                <div class="resource-icon icon-sys">🖥️</div>
+                <h3 class="resource-title">Org. & Arsitektur Komputer</h3>
+                <p class="resource-instructor">Rinaldi Munir & Tutorial Mas Arif</p>
+                <p class="resource-description">Arsitektur Von Neumann, CPU, memori, I/O system, dan organisasi hardware. Pemahaman mendalam tentang cara kerja komputer.</p>
+                <span class="resource-type">📹 Video + 📄 PDF</span>
+                <div class="resource-links">
+                    <a href="https://www.youtube.com/playlist?list=PLOOyvLFiJe22zDKhVwxK8jK1v_sUynCxQ" target="_blank" class="link-btn">
+                        ▶ YouTube
+                    </a>
+                    <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/PTI/2013-2014/KU1072_SistemKomputerdanJaringan.pdf" target="_blank" class="link-btn">
+                        📄 Materi PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Resources -->
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <div class="additional-resources">
+            <h2>📚 Sumber Daya Tambahan</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-24">
+                <div class="resource-link-box">
+                    <h3>🏫 UI Open CourseWare</h3>
+                    <p>Portal resmi Universitas Indonesia yang menyediakan materi kuliah gratis dari berbagai pakar dan dosen berpengalaman di bidangnya masing-masing.</p>
+                    <a href="https://ocw.ui.ac.id/course/index.php?categoryid=12" target="_blank">
+                        Kunjungi OCW UI →
+                    </a>
+                </div>
+                <div class="resource-link-box">
+                    <h3>👨‍🏫 Rinaldi Munir Homepage</h3>
+                    <p>Website personal Rinaldi Munir dengan koleksi lengkap materi kuliah, slide presentasi, video, dan berbagai sumber daya akademik dari ITB.</p>
+                    <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/" target="_blank">
+                        Kunjungi Homepage →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="max-w-7xl mx-auto">
+            <p>✨ Semua sumber belajar di atas bersifat gratis dan dapat diakses oleh siapa saja tanpa batasan.</p>
+            <p style="margin-top: 16px; opacity: 0.7;">Dibuat dengan dedikasi untuk mendukung pembelajaran informatika berkualitas di Indonesia</p>
+        </div>
+    </footer>
+
+</body>
+</html>

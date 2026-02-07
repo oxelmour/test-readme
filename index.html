@@ -2,583 +2,420 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Informatika.id - Platform Belajar Informatika Terbaik Indonesia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informatika.id - Platform Belajar Informatika</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
         * {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            color: #fff;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Animated Background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 0, 127, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(0, 200, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(138, 43, 226, 0.08) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-            animation: gradientShift 15s ease infinite;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(20px, 20px); }
+            background: #fafafa;
+            color: #2d3436;
         }
 
         /* Navbar */
         .navbar {
-            background: rgba(15, 12, 41, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 0, 127, 0.2);
+            background: white;
+            border-bottom: 1px solid #e8e8e8;
+            padding: 16px 0;
             position: sticky;
             top: 0;
             z-index: 50;
-            box-shadow: 0 8px 32px rgba(0, 200, 255, 0.1);
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .navbar-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 800;
-            font-size: 1.4rem;
-            background: linear-gradient(135deg, #FF007F 0%, #00C8FF 50%, #A82BDE 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2d3436;
+            letter-spacing: -0.5px;
+        }
+
+        .navbar-tagline {
+            font-size: 0.85rem;
+            color: #636e72;
+            font-weight: 500;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            position: relative;
-            overflow: hidden;
-            padding: 120px 20px;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -5%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 10s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(30px) translateX(20px); }
+            background: white;
+            padding: 80px 24px;
+            text-align: center;
+            border-bottom: 1px solid #e8e8e8;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 1;
             max-width: 900px;
-            text-align: center;
-            color: white;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 24px;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #2d3436;
             letter-spacing: -1px;
-            font-family: 'Poppins', sans-serif;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            animation: slideInDown 0.8s ease;
-        }
-
-        @keyframes slideInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero p {
-            font-size: 1.3rem;
-            opacity: 0.95;
+            font-size: 1.1rem;
+            color: #636e72;
             margin-bottom: 40px;
-            line-height: 1.8;
-            animation: slideInUp 0.8s ease 0.2s both;
-        }
-
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            line-height: 1.7;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
-            animation: slideInUp 0.8s ease 0.4s both;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #FF007F 0%, #FF4B7F 100%);
+            background: #2d3436;
             color: white;
-            padding: 16px 40px;
-            border-radius: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(255, 0, 127, 0.3);
-            font-family: 'Poppins', sans-serif;
         }
 
         .btn-primary:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 50px rgba(255, 0, 127, 0.5);
+            background: #1a1a1a;
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            padding: 16px 40px;
-            border-radius: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            cursor: pointer;
-            backdrop-filter: blur(10px);
-            font-family: 'Poppins', sans-serif;
+            background: #f0f0f0;
+            color: #2d3436;
+            border: 1px solid #d4d4d4;
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: rgba(255, 255, 255, 0.8);
-            transform: translateY(-6px);
+            background: #e8e8e8;
+            transform: translateY(-2px);
         }
 
-        /* Featured Box */
-        .featured-section {
-            position: relative;
-            z-index: 2;
-            margin: -80px 20px 0;
+        /* Featured Section */
+        .featured {
+            background: #f5f5f5;
+            padding: 60px 24px;
+            border-bottom: 1px solid #e8e8e8;
         }
 
-        .featured-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: slideInUp 0.8s ease 0.6s both;
+        .featured-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #e8e8e8;
         }
 
-        .featured-card h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
+        .featured-content h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
             margin-bottom: 16px;
-            background: linear-gradient(135deg, #FF007F 0%, #00C8FF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-family: 'Poppins', sans-serif;
+            color: #2d3436;
         }
 
-        .featured-card p {
-            font-size: 1.05rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 28px;
-            line-height: 1.8;
+        .featured-content p {
+            font-size: 0.95rem;
+            color: #636e72;
+            margin-bottom: 24px;
+            line-height: 1.7;
         }
 
         /* Section */
         .section {
-            padding: 100px 20px;
-            max-width: 1400px;
+            padding: 80px 24px;
+            background: white;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .section-content {
+            max-width: 1200px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 70px;
+            margin-bottom: 60px;
         }
 
         .section-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #FF007F 0%, #00C8FF 50%, #A82BDE 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #2d3436;
         }
 
         .section-subtitle {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            color: #636e72;
             max-width: 700px;
             margin: 0 auto;
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
         /* Resource Grid */
         .resource-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
         }
 
         .resource-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-            backdrop-filter: blur(15px);
-            border-radius: 16px;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
-            overflow: hidden;
-            height: 100%;
+            background: white;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            padding: 32px;
+            transition: all 0.2s ease;
             display: flex;
             flex-direction: column;
-            animation: fadeInUp 0.6s ease both;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .resource-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #FF007F 0%, #00C8FF 50%, #A82BDE 100%);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
         }
 
         .resource-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 30px 60px rgba(255, 0, 127, 0.2);
-            border-color: rgba(255, 0, 127, 0.4);
-            background: linear-gradient(135deg, rgba(255, 0, 127, 0.1) 0%, rgba(0, 200, 255, 0.05) 100%);
-        }
-
-        .resource-card:hover::before {
-            transform: scaleX(1);
+            border-color: #d4d4d4;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
         }
 
         .resource-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            font-size: 28px;
-            background: linear-gradient(135deg, #FF007F 0%, #00C8FF 100%);
-            color: white;
-            box-shadow: 0 8px 20px rgba(255, 0, 127, 0.3);
-        }
-
-        .resource-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 8px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .resource-instructor {
-            font-size: 0.9rem;
-            background: linear-gradient(135deg, #FF007F 0%, #00C8FF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
+            font-size: 2.5rem;
             margin-bottom: 16px;
         }
 
+        .resource-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #2d3436;
+        }
+
+        .resource-instructor {
+            font-size: 0.85rem;
+            color: #636e72;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
         .resource-description {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.7;
-            margin-bottom: 24px;
+            font-size: 0.9rem;
+            color: #636e72;
+            line-height: 1.6;
+            margin-bottom: 20px;
             flex-grow: 1;
         }
 
         .resource-type {
             display: inline-block;
-            padding: 8px 16px;
-            background: linear-gradient(135deg, rgba(255, 0, 127, 0.2) 0%, rgba(0, 200, 255, 0.2) 100%);
-            border-radius: 8px;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.9);
+            padding: 6px 12px;
+            background: #f0f0f0;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: #636e72;
             font-weight: 700;
-            margin-bottom: 24px;
-            border: 1px solid rgba(255, 0, 127, 0.3);
+            margin-bottom: 20px;
         }
 
         .resource-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: auto;
+            gap: 8px;
         }
 
         .link-btn {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 8px 16px;
-            background: linear-gradient(135deg, rgba(255, 0, 127, 0.15) 0%, rgba(0, 200, 255, 0.15) 100%);
-            border: 1px solid rgba(255, 0, 127, 0.3);
-            border-radius: 8px;
+            gap: 4px;
+            padding: 6px 12px;
+            background: #f0f0f0;
+            border: 1px solid #d4d4d4;
+            border-radius: 6px;
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.85rem;
+            color: #2d3436;
+            font-size: 0.8rem;
             font-weight: 600;
             transition: all 0.2s ease;
         }
 
         .link-btn:hover {
-            background: linear-gradient(135deg, #FF007F 0%, #00C8FF 100%);
+            background: #2d3436;
             color: white;
-            border-color: transparent;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 0, 127, 0.3);
+            border-color: #2d3436;
         }
 
         /* Additional Resources */
-        .additional-section {
-            background: linear-gradient(135deg, rgba(255, 0, 127, 0.05) 0%, rgba(0, 200, 255, 0.05) 100%);
-            padding: 100px 20px;
-            border-top: 1px solid rgba(255, 0, 127, 0.2);
-            border-bottom: 1px solid rgba(0, 200, 255, 0.2);
-            position: relative;
-            z-index: 1;
+        .additional {
+            background: #f5f5f5;
+            padding: 80px 24px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .additional-content {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .additional-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 32px;
+            margin-top: 50px;
         }
 
         .additional-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-            backdrop-filter: blur(15px);
-            border-radius: 16px;
-            padding: 45px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.6s ease both;
+            background: white;
+            border: 1px solid #e8e8e8;
+            border-radius: 10px;
+            padding: 36px;
+            transition: all 0.2s ease;
         }
 
         .additional-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(255, 0, 127, 0.15);
-            border-color: rgba(255, 0, 127, 0.3);
+            border-color: #d4d4d4;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
         }
 
         .additional-card h3 {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 14px;
-            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #2d3436;
         }
 
         .additional-card p {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 24px;
-            line-height: 1.7;
+            font-size: 0.9rem;
+            color: #636e72;
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
 
         .additional-card a {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            color: #00C8FF;
+            gap: 6px;
+            color: #2d3436;
             text-decoration: none;
             font-weight: 700;
+            font-size: 0.9rem;
             transition: all 0.2s ease;
         }
 
         .additional-card a:hover {
-            gap: 12px;
-            color: #FF007F;
+            gap: 10px;
+            color: #636e72;
         }
 
         /* Footer */
         .footer {
-            background: linear-gradient(135deg, rgba(15, 12, 41, 0.9) 0%, rgba(48, 43, 99, 0.9) 100%);
-            color: rgba(255, 255, 255, 0.8);
-            padding: 70px 20px 30px;
+            background: white;
+            color: #636e72;
+            padding: 60px 24px;
             text-align: center;
-            border-top: 1px solid rgba(255, 0, 127, 0.2);
-            position: relative;
-            z-index: 1;
+            border-top: 1px solid #e8e8e8;
         }
 
         .footer p {
-            font-size: 0.95rem;
-            line-height: 1.8;
-            margin-bottom: 12px;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 8px;
         }
 
         /* Responsive */
-        @media (max-width: 1024px) {
-            .hero h1 {
-                font-size: 3.2rem;
-            }
-
-            .section-title {
-                font-size: 2.8rem;
-            }
-
-            .resource-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-        }
-
         @media (max-width: 768px) {
             .hero {
-                padding: 80px 16px;
-                min-height: 500px;
+                padding: 60px 16px;
             }
 
             .hero h1 {
-                font-size: 2.4rem;
-            }
-
-            .hero p {
-                font-size: 1.05rem;
-            }
-
-            .featured-card {
-                padding: 32px;
-            }
-
-            .featured-section {
-                margin: -50px 16px 0;
-            }
-
-            .section {
-                padding: 70px 16px;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            .resource-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .resource-card {
-                padding: 28px;
-            }
-
-            .additional-grid {
-                gap: 28px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 60px 12px;
-                min-height: 400px;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .hero p {
                 font-size: 0.95rem;
             }
 
-            .hero-buttons {
-                gap: 12px;
-            }
-
-            .btn-primary, .btn-secondary {
-                padding: 12px 24px;
-                font-size: 0.9rem;
+            .section {
+                padding: 60px 16px;
             }
 
             .section-title {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
+            }
+
+            .resource-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
             }
 
             .resource-card {
-                padding: 20px;
+                padding: 24px;
+            }
+
+            .featured-content {
+                padding: 28px;
+            }
+
+            .featured-content h2 {
+                font-size: 1.4rem;
+            }
+
+            .additional-card {
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.85rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
             }
 
             .resource-title {
                 font-size: 1.1rem;
             }
 
-            .featured-card {
-                padding: 20px;
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
             }
 
-            .featured-card h2 {
-                font-size: 1.5rem;
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .resource-icon {
+                font-size: 2rem;
             }
         }
     </style>
@@ -586,139 +423,141 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex items-center justify-between">
-            <div class="navbar-brand">
-                ✨ Informatika.id
-            </div>
-            <div style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; font-weight: 600;">Platform Belajar Terbaik</div>
+        <div class="navbar-content">
+            <div class="navbar-brand">Informatika.id</div>
+            <div class="navbar-tagline">Platform Belajar Terbaik</div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Materi Kuliah Informatika<br>Berkualitas Tinggi</h1>
+            <h1>Materi Kuliah Informatika Berkualitas Tinggi</h1>
             <p>Akses ribuan jam video pembelajaran, PDF, dan materi kuliah gratis dari institusi terkemuka seperti ITB, UI, dan universitas terbaik di seluruh Indonesia.</p>
             <div class="hero-buttons">
-                <a href="#resources" class="btn-primary">🚀 Jelajahi Materi</a>
-                <a href="#featured" class="btn-secondary">📚 Lihat Arsip Lengkap</a>
+                <a href="#resources" class="btn btn-primary">Jelajahi Materi</a>
+                <a href="#featured" class="btn btn-secondary">Lihat Arsip Lengkap</a>
             </div>
         </div>
     </section>
 
     <!-- Featured Section -->
-    <section class="featured-section">
-        <div class="featured-card">
-            <h2>🎯 Akses Semua Materi Sekaligus</h2>
+    <section class="featured" id="featured">
+        <div class="featured-content">
+            <h2>Akses Semua Materi Sekaligus</h2>
             <p>Koleksi lengkap materi jurusan Ilmu Komputer tahun 2025 dalam satu tempat. Ribuan file PDF, video pembelajaran, dan sumber daya akademik lainnya tersedia untuk diunduh gratis.</p>
-            <a href="https://s.id/ArsipMateriJurusanIlmuKomputer2025" target="_blank" class="btn-primary" style="display: inline-block;">Buka Arsip Lengkap →</a>
+            <a href="https://s.id/ArsipMateriJurusanIlmuKomputer2025" target="_blank" class="btn btn-primary">Buka Arsip Lengkap →</a>
         </div>
     </section>
 
     <!-- Main Resources Section -->
-    <section id="resources" class="section">
-        <div class="section-header">
-            <h2 class="section-title">Mata Kuliah Utama</h2>
-            <p class="section-subtitle">Enam mata kuliah fundamental dengan sumber belajar berkualitas tinggi dari pengajar berpengalaman dan institusi ternama.</p>
-        </div>
-
-        <div class="resource-grid">
-            <!-- Matematika Diskrit -->
-            <div class="resource-card">
-                <div class="resource-icon">🔢</div>
-                <h3 class="resource-title">Matematika Diskrit</h3>
-                <p class="resource-instructor">Rinaldi Munir • ITB</p>
-                <p class="resource-description">Teori himpunan, logika proposisional, relasi, fungsi, kombinatorik, dan teori graf. Fondasi matematika untuk ilmu komputer.</p>
-                <span class="resource-type">📹 VIDEO + 📄 PDF</span>
-                <div class="resource-links">
-                    <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3pMu_kUSlzPQwi49dSRpUbb" target="_blank" class="link-btn">▶ YouTube</a>
-                    <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/Matdis/matdis.htm" target="_blank" class="link-btn">📄 Materi</a>
-                </div>
+    <section class="section" id="resources">
+        <div class="section-content">
+            <div class="section-header">
+                <h2 class="section-title">Mata Kuliah Utama</h2>
+                <p class="section-subtitle">Enam mata kuliah fundamental dengan sumber belajar berkualitas tinggi dari pengajar berpengalaman dan institusi ternama.</p>
             </div>
 
-            <!-- Aljabar Linier -->
-            <div class="resource-card">
-                <div class="resource-icon">⬜</div>
-                <h3 class="resource-title">Aljabar Linier</h3>
-                <p class="resource-instructor">Rinaldi Munir • ITB & UI OCW</p>
-                <p class="resource-description">Matriks, vektor, sistem persamaan linier, eigenvalue, dan transformasi linier. Esensial untuk grafis komputer dan machine learning.</p>
-                <span class="resource-type">📹 VIDEO + 📄 PDF</span>
-                <div class="resource-links">
-                    <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3qTl3QVfFBVR9IbC9csY1Cg" target="_blank" class="link-btn">▶ YouTube</a>
-                    <a href="https://ocw.ui.ac.id/course/view.php?id=32" target="_blank" class="link-btn">🎓 OCW UI</a>
+            <div class="resource-grid">
+                <!-- Matematika Diskrit -->
+                <div class="resource-card">
+                    <div class="resource-icon">🔢</div>
+                    <h3 class="resource-title">Matematika Diskrit</h3>
+                    <p class="resource-instructor">Rinaldi Munir • ITB</p>
+                    <p class="resource-description">Teori himpunan, logika proposisional, relasi, fungsi, kombinatorik, dan teori graf. Fondasi matematika untuk ilmu komputer.</p>
+                    <span class="resource-type">VIDEO + PDF</span>
+                    <div class="resource-links">
+                        <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3pMu_kUSlzPQwi49dSRpUbb" target="_blank" class="link-btn">▶ YouTube</a>
+                        <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/Matdis/matdis.htm" target="_blank" class="link-btn">📄 Materi</a>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Struktur Data -->
-            <div class="resource-card">
-                <div class="resource-icon">🌳</div>
-                <h3 class="resource-title">Struktur Data</h3>
-                <p class="resource-instructor">Indonesia Belajar • Rekaman Kuliah</p>
-                <p class="resource-description">Array, linked list, stack, queue, tree, graph, dan analisis kompleksitas algoritma. Materi kuliah lengkap dan mendalam.</p>
-                <span class="resource-type">📹 VIDEO TUTORIAL</span>
-                <div class="resource-links">
-                    <a href="https://www.youtube.com/playlist?list=PL2O3HdJI4voEOEB5ecXtCTayzXSB8b3KZ" target="_blank" class="link-btn">▶ Tonton Playlist</a>
+                <!-- Aljabar Linier -->
+                <div class="resource-card">
+                    <div class="resource-icon">⬜</div>
+                    <h3 class="resource-title">Aljabar Linier</h3>
+                    <p class="resource-instructor">Rinaldi Munir • ITB & UI OCW</p>
+                    <p class="resource-description">Matriks, vektor, sistem persamaan linier, eigenvalue, dan transformasi linier. Esensial untuk grafis komputer dan machine learning.</p>
+                    <span class="resource-type">VIDEO + PDF</span>
+                    <div class="resource-links">
+                        <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3qTl3QVfFBVR9IbC9csY1Cg" target="_blank" class="link-btn">▶ YouTube</a>
+                        <a href="https://ocw.ui.ac.id/course/view.php?id=32" target="_blank" class="link-btn">🎓 OCW UI</a>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Algoritma Pemrograman -->
-            <div class="resource-card">
-                <div class="resource-icon">⚙️</div>
-                <h3 class="resource-title">Algoritma Pemrograman</h3>
-                <p class="resource-instructor">Rinaldi Munir & Sandhika Galih</p>
-                <p class="resource-description">Notasi algoritma, pseudocode, analisis kompleksitas, dan strategi pemecahan masalah. Dari dasar hingga advanced.</p>
-                <span class="resource-type">📹 VIDEO + 📄 PDF</span>
-                <div class="resource-links">
-                    <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3pdFjgNZU9sO3Lg0uezCTeW" target="_blank" class="link-btn">▶ Advanced</a>
-                    <a href="https://www.youtube.com/playlist?list=PLFIM0718LjIWuXvO0S0I0v_6X43I7vI1v" target="_blank" class="link-btn">▶ Basic</a>
+                <!-- Struktur Data -->
+                <div class="resource-card">
+                    <div class="resource-icon">🌳</div>
+                    <h3 class="resource-title">Struktur Data</h3>
+                    <p class="resource-instructor">Indonesia Belajar • Rekaman Kuliah</p>
+                    <p class="resource-description">Array, linked list, stack, queue, tree, graph, dan analisis kompleksitas algoritma. Materi kuliah lengkap dan mendalam.</p>
+                    <span class="resource-type">VIDEO TUTORIAL</span>
+                    <div class="resource-links">
+                        <a href="https://www.youtube.com/playlist?list=PL2O3HdJI4voEOEB5ecXtCTayzXSB8b3KZ" target="_blank" class="link-btn">▶ Tonton Playlist</a>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Basis Data -->
-            <div class="resource-card">
-                <div class="resource-icon">🗄️</div>
-                <h3 class="resource-title">Basis Data</h3>
-                <p class="resource-instructor">Web Programming UNPAS & UINSU</p>
-                <p class="resource-description">SQL, relational database, normalisasi, perancangan basis data, dan optimasi query. Praktik langsung dengan contoh nyata.</p>
-                <span class="resource-type">📹 VIDEO + 📄 PDF</span>
-                <div class="resource-links">
-                    <a href="https://www.youtube.com/playlist?list=PLFIM0718LjIVuXvO0S0I0v_6X43I7vI1v" target="_blank" class="link-btn">▶ YouTube SQL</a>
-                    <a href="http://repository.uinsu.ac.id/14206/1/Buku%20Digital%20-%20BUKU%20AJAR%20BASIS%20DATA.pdf" target="_blank" class="link-btn">📄 Buku Ajar</a>
+                <!-- Algoritma Pemrograman -->
+                <div class="resource-card">
+                    <div class="resource-icon">⚙️</div>
+                    <h3 class="resource-title">Algoritma Pemrograman</h3>
+                    <p class="resource-instructor">Rinaldi Munir & Sandhika Galih</p>
+                    <p class="resource-description">Notasi algoritma, pseudocode, analisis kompleksitas, dan strategi pemecahan masalah. Dari dasar hingga advanced.</p>
+                    <span class="resource-type">VIDEO + PDF</span>
+                    <div class="resource-links">
+                        <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3pdFjgNZU9sO3Lg0uezCTeW" target="_blank" class="link-btn">▶ Advanced</a>
+                        <a href="https://www.youtube.com/playlist?list=PLFIM0718LjIWuXvO0S0I0v_6X43I7vI1v" target="_blank" class="link-btn">▶ Basic</a>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Organisasi & Arsitektur Komputer -->
-            <div class="resource-card">
-                <div class="resource-icon">🖥️</div>
-                <h3 class="resource-title">Org. & Arsitektur Komputer</h3>
-                <p class="resource-instructor">Rinaldi Munir & Tutorial Mas Arif</p>
-                <p class="resource-description">Arsitektur Von Neumann, CPU, memori, I/O system, dan organisasi hardware. Pemahaman mendalam tentang cara kerja komputer.</p>
-                <span class="resource-type">📹 VIDEO + 📄 PDF</span>
-                <div class="resource-links">
-                    <a href="https://www.youtube.com/playlist?list=PLOOyvLFiJe22zDKhVwxK8jK1v_sUynCxQ" target="_blank" class="link-btn">▶ YouTube</a>
-                    <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/PTI/2013-2014/KU1072_SistemKomputerdanJaringan.pdf" target="_blank" class="link-btn">📄 Materi PDF</a>
+                <!-- Basis Data -->
+                <div class="resource-card">
+                    <div class="resource-icon">🗄️</div>
+                    <h3 class="resource-title">Basis Data</h3>
+                    <p class="resource-instructor">Web Programming UNPAS & UINSU</p>
+                    <p class="resource-description">SQL, relational database, normalisasi, perancangan basis data, dan optimasi query. Praktik langsung dengan contoh nyata.</p>
+                    <span class="resource-type">VIDEO + PDF</span>
+                    <div class="resource-links">
+                        <a href="https://www.youtube.com/playlist?list=PLFIM0718LjIVuXvO0S0I0v_6X43I7vI1v" target="_blank" class="link-btn">▶ YouTube SQL</a>
+                        <a href="http://repository.uinsu.ac.id/14206/1/Buku%20Digital%20-%20BUKU%20AJAR%20BASIS%20DATA.pdf" target="_blank" class="link-btn">📄 Buku Ajar</a>
+                    </div>
+                </div>
+
+                <!-- Organisasi & Arsitektur Komputer -->
+                <div class="resource-card">
+                    <div class="resource-icon">🖥️</div>
+                    <h3 class="resource-title">Org. & Arsitektur Komputer</h3>
+                    <p class="resource-instructor">Rinaldi Munir & Tutorial Mas Arif</p>
+                    <p class="resource-description">Arsitektur Von Neumann, CPU, memori, I/O system, dan organisasi hardware. Pemahaman mendalam tentang cara kerja komputer.</p>
+                    <span class="resource-type">VIDEO + PDF</span>
+                    <div class="resource-links">
+                        <a href="https://www.youtube.com/playlist?list=PLOOyvLFiJe22zDKhVwxK8jK1v_sUynCxQ" target="_blank" class="link-btn">▶ YouTube</a>
+                        <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/PTI/2013-2014/KU1072_SistemKomputerdanJaringan.pdf" target="_blank" class="link-btn">📄 Materi PDF</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Additional Resources -->
-    <section class="additional-section">
-        <div class="section-header">
-            <h2 class="section-title">Sumber Daya Tambahan</h2>
-            <p class="section-subtitle">Portal resmi dan website akademik dari institusi terkemuka Indonesia.</p>
-        </div>
-
-        <div class="additional-grid">
-            <div class="additional-card">
-                <h3>🏫 UI Open CourseWare</h3>
-                <p>Portal resmi Universitas Indonesia yang menyediakan materi kuliah gratis dari berbagai pakar dan dosen berpengalaman di bidangnya masing-masing.</p>
-                <a href="https://ocw.ui.ac.id/course/index.php?categoryid=12" target="_blank">Kunjungi OCW UI →</a>
+    <section class="additional">
+        <div class="additional-content">
+            <div class="section-header">
+                <h2 class="section-title">Sumber Daya Tambahan</h2>
+                <p class="section-subtitle">Portal resmi dan website akademik dari institusi terkemuka Indonesia.</p>
             </div>
-            <div class="additional-card">
-                <h3>👨‍🏫 Rinaldi Munir Homepage</h3>
-                <p>Website personal Rinaldi Munir dengan koleksi lengkap materi kuliah, slide presentasi, video, dan berbagai sumber daya akademik dari ITB.</p>
-                <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/" target="_blank">Kunjungi Homepage →</a>
+
+            <div class="additional-grid">
+                <div class="additional-card">
+                    <h3>UI Open CourseWare</h3>
+                    <p>Portal resmi Universitas Indonesia yang menyediakan materi kuliah gratis dari berbagai pakar dan dosen berpengalaman di bidangnya masing-masing.</p>
+                    <a href="https://ocw.ui.ac.id/course/index.php?categoryid=12" target="_blank">Kunjungi OCW UI →</a>
+                </div>
+                <div class="additional-card">
+                    <h3>Rinaldi Munir Homepage</h3>
+                    <p>Website personal Rinaldi Munir dengan koleksi lengkap materi kuliah, slide presentasi, video, dan berbagai sumber daya akademik dari ITB.</p>
+                    <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/" target="_blank">Kunjungi Homepage →</a>
+                </div>
             </div>
         </div>
     </section>

@@ -4,1027 +4,698 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASEP DAO</title>
-    
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="Platform belajar informatika gratis dengan ribuan jam video pembelajaran, PDF, dan materi kuliah dari institusi terkemuka seperti ITB, UI, dan universitas terbaik di Indonesia.">
     <meta name="keywords" content="informatika, kuliah gratis, materi kuliah, ITB, UI, computer science, belajar programming, ilmu komputer, VClass Unila">
     <meta name="author" content="ASEP DAO">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://informatika.id/">
     <meta property="og:title" content="ASEP DAO">
     <meta property="og:description" content="Akses ribuan jam video pembelajaran, PDF, dan materi kuliah gratis dari institusi terkemuka seperti ITB, UI, dan universitas terbaik di Indonesia.">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://informatika.id/">
     <meta property="twitter:title" content="ASEP DAO">
     <meta property="twitter:description" content="Platform belajar informatika gratis dengan ribuan materi kuliah berkualitas tinggi dari universitas terbaik Indonesia.">
-    
-    <!-- Favicon using emoji -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💻%3C/text%3E%3C/svg%3E">
-    
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%BB%3C/text%3E%3C/svg%3E">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --cream: #faf8f3;
             --tan: #e8dcc8;
             --dark: #2a2520;
             --accent: #8b7355;
-            --light-gray: #f5f3f0;
+            --card: rgba(255, 255, 255, 0.86);
+            --muted: #5a5450;
         }
 
         * {
+            box-sizing: border-box;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            background: var(--cream);
+            background: radial-gradient(circle at 20% 20%, #fff9f0 0%, #f2ece3 30%, #faf8f3 60%);
             color: var(--dark);
-            line-height: 1.6;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Crimson Text', serif;
-            font-weight: 600;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.4px;
+            color: var(--dark);
         }
 
-        /* SVG Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        a {
+            color: inherit;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .container {
+            width: min(1200px, calc(100% - 32px));
+            margin: 0 auto;
         }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
-        }
-
-        .svg-float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .svg-fade {
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        /* Navbar */
-        .navbar {
-            background: white;
-            border-bottom: 1px solid #e0d9ce;
-            padding: 20px 0;
+        header {
             position: sticky;
             top: 0;
-            z-index: 50;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            z-index: 10;
+            backdrop-filter: blur(12px);
+            background: rgba(250, 248, 243, 0.92);
+            border-bottom: 1px solid #e2d8c9;
         }
 
-        .navbar-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
+        .nav-bar {
             display: flex;
+            align-items: center;
             justify-content: space-between;
+            padding: 18px 0;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .brand-mark {
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .brand-tagline {
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 0.4px;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 12px;
             align-items: center;
         }
 
-        .navbar-brand {
-            font-size: 1.2rem;
-            font-weight: 700;
+        .btn {
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+        }
+
+        .btn-solid {
+            background: var(--dark);
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(42, 37, 32, 0.16);
+        }
+
+        .btn-solid:hover { transform: translateY(-2px); background: var(--accent); }
+
+        .btn-ghost {
+            background: rgba(232, 220, 200, 0.5);
             color: var(--dark);
-            letter-spacing: -0.3px;
-            font-family: 'Crimson Text', serif;
+            border: 1px solid #d8ccba;
         }
 
-        .navbar-tagline {
-            font-size: 0.8rem;
-            color: var(--accent);
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
+        .btn-ghost:hover { transform: translateY(-2px); border-color: var(--accent); }
 
-        /* Hero Section */
         .hero {
-            background: white;
-            padding: 80px 24px;
-            text-align: center;
-            border-bottom: 1px solid #e0d9ce;
+            padding: 80px 0 60px;
             position: relative;
             overflow: hidden;
         }
 
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            background: var(--tan);
+            opacity: 0.3;
+            filter: blur(60px);
+            z-index: 0;
         }
 
-        .hero-content {
-            text-align: left;
+        .hero::before {
+            width: 260px;
+            height: 260px;
+            top: -60px;
+            right: 10%;
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            width: 220px;
+            height: 220px;
+            bottom: -40px;
+            left: 8%;
+            border-radius: 40%;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            position: relative;
             z-index: 1;
         }
 
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: rgba(42, 37, 32, 0.08);
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
         .hero h1 {
-            font-size: 3rem;
+            font-size: clamp(2.4rem, 5vw, 3.3rem);
+            margin: 16px 0 14px;
             line-height: 1.2;
-            margin-bottom: 24px;
-            color: var(--dark);
-            animation: fadeInUp 0.8s ease-out;
         }
 
         .hero p {
-            font-size: 1rem;
-            color: #5a5450;
-            margin-bottom: 36px;
-            line-height: 1.8;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
-        .hero-svg {
-            position: relative;
-            animation: fadeInUp 0.8s ease-out 0.3s both;
-        }
-
-        .btn {
-            padding: 14px 32px;
-            border-radius: 6px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-        }
-
-        .btn-primary {
-            background: var(--dark);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-        }
-
-        .btn-secondary {
-            background: var(--light-gray);
-            color: var(--dark);
-            border: 1px solid #d4ccc0;
-        }
-
-        .btn-secondary:hover {
-            background: var(--tan);
-            border-color: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-        }
-
-        /* Featured Section */
-        .featured {
-            background: var(--light-gray);
-            padding: 80px 24px;
-            border-bottom: 1px solid #e0d9ce;
-        }
-
-        .featured-content {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 50px;
-            border-radius: 8px;
-            border: 1px solid #e0d9ce;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .featured-content h2 {
-            font-size: 2rem;
-            margin-bottom: 16px;
-            color: var(--dark);
-        }
-
-        .featured-content p {
-            font-size: 0.95rem;
-            color: #5a5450;
-            margin-bottom: 28px;
-            line-height: 1.8;
-        }
-
-        /* VClass Section */
-        .vclass-section {
-            background: white;
-            padding: 80px 24px;
-            border-bottom: 1px solid #e0d9ce;
-        }
-
-        .vclass-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .vclass-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .vclass-title {
-            font-size: 2rem;
-            margin-bottom: 12px;
-            color: var(--dark);
-        }
-
-        .vclass-subtitle {
-            font-size: 0.95rem;
-            color: #5a5450;
-            line-height: 1.8;
-        }
-
-        .vclass-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .vclass-card {
-            background: var(--light-gray);
-            border: 1px solid #e0d9ce;
-            border-radius: 8px;
-            padding: 24px;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .vclass-card:nth-child(1) { animation-delay: 0.1s; }
-        .vclass-card:nth-child(2) { animation-delay: 0.2s; }
-        .vclass-card:nth-child(3) { animation-delay: 0.3s; }
-        .vclass-card:nth-child(4) { animation-delay: 0.4s; }
-        .vclass-card:nth-child(5) { animation-delay: 0.5s; }
-        .vclass-card:nth-child(6) { animation-delay: 0.6s; }
-        .vclass-card:nth-child(7) { animation-delay: 0.7s; }
-
-        .vclass-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-            transform: translateY(-4px);
-        }
-
-        .vclass-card-title {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 12px;
-            line-height: 1.4;
-        }
-
-        .vclass-card-link {
-            display: inline-block;
-            padding: 8px 16px;
-            background: var(--dark);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-
-        .vclass-card-link:hover {
-            background: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        /* Section */
-        .section {
-            padding: 100px 24px;
-            background: var(--light-gray);
-            border-bottom: 1px solid #e0d9ce;
-        }
-
-        .section-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 70px;
-        }
-
-        .section-title {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .section-subtitle {
-            font-size: 0.95rem;
-            color: #5a5450;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.8;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        /* Resource Grid */
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 28px;
-        }
-
-        .resource-card {
-            background: white;
-            border: 1px solid #e0d9ce;
-            border-radius: 8px;
-            padding: 36px;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            animation: fadeInUp 0.8s ease-out;
-            animation-fill-mode: both;
-        }
-
-        .resource-card:nth-child(1) { animation-delay: 0.1s; }
-        .resource-card:nth-child(2) { animation-delay: 0.2s; }
-        .resource-card:nth-child(3) { animation-delay: 0.3s; }
-        .resource-card:nth-child(4) { animation-delay: 0.4s; }
-        .resource-card:nth-child(5) { animation-delay: 0.5s; }
-        .resource-card:nth-child(6) { animation-delay: 0.6s; }
-
-        .resource-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-            transform: translateY(-6px);
-        }
-
-        .resource-icon {
-            font-size: 2.2rem;
-            margin-bottom: 18px;
-            display: inline-block;
-            width: 50px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .resource-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 6px;
-            color: var(--dark);
-        }
-
-        .resource-instructor {
-            font-size: 0.85rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 16px;
-            letter-spacing: 0.3px;
-        }
-
-        .resource-description {
-            font-size: 0.9rem;
-            color: #5a5450;
-            line-height: 1.7;
+            color: var(--muted);
+            max-width: 640px;
             margin-bottom: 22px;
-            flex-grow: 1;
+            font-size: 1rem;
         }
 
-        .resource-type {
-            display: inline-block;
-            padding: 6px 12px;
-            background: var(--light-gray);
-            border-radius: 4px;
-            font-size: 0.75rem;
-            color: var(--accent);
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 0.3px;
-        }
-
-        .resource-links {
+        .cta-row {
             display: flex;
+            gap: 12px;
             flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .chips {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .chip {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid #e2d9ce;
+            color: var(--muted);
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .hero-card {
+            background: var(--card);
+            border: 1px solid #e2d9ce;
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 18px 40px rgba(42, 37, 32, 0.08);
+            display: grid;
+            gap: 16px;
+        }
+
+        .hero-card h3 {
+            font-size: 1.3rem;
+        }
+
+        .hero-list {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .pill-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: rgba(139, 115, 85, 0.12);
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        section.card-section {
+            padding: 70px 0;
+        }
+
+        .section-shell {
+            background: var(--card);
+            border: 1px solid #e2d9ce;
+            border-radius: 18px;
+            padding: 32px;
+            box-shadow: 0 14px 30px rgba(42, 37, 32, 0.06);
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 26px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+        }
+
+        .section-head p {
+            color: var(--muted);
+            max-width: 520px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 18px;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .card {
+            padding: 18px 18px 20px;
+            border: 1px solid #e2d9ce;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 24px rgba(42, 37, 32, 0.04);
+            display: grid;
             gap: 10px;
         }
 
-        .link-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 6px 14px;
-            background: var(--light-gray);
-            border: 1px solid #d4ccc0;
-            border-radius: 4px;
-            text-decoration: none;
-            color: var(--dark);
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
+        .card:hover { border-color: var(--accent); box-shadow: 0 16px 30px rgba(42, 37, 32, 0.08); transform: translateY(-2px); transition: all 0.2s ease; }
 
-        .link-btn:hover {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        /* Additional Resources */
-        .additional {
-            background: white;
-            padding: 100px 24px;
-            border-bottom: 1px solid #e0d9ce;
-        }
-
-        .additional-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .additional-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 36px;
-            margin-top: 60px;
-        }
-
-        .additional-card {
-            background: var(--light-gray);
-            border: 1px solid #e0d9ce;
-            border-radius: 8px;
-            padding: 40px;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .additional-card:nth-child(1) { animation-delay: 0.2s; }
-        .additional-card:nth-child(2) { animation-delay: 0.4s; }
-
-        .additional-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-            transform: translateY(-6px);
-        }
-
-        .additional-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 14px;
+        .card-title {
+            font-weight: 700;
             color: var(--dark);
         }
 
-        .additional-card p {
-            font-size: 0.9rem;
-            color: #5a5450;
-            margin-bottom: 22px;
-            line-height: 1.7;
+        .card-sub {
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.6;
         }
 
-        .additional-card a {
+        .tag {
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            padding: 6px 10px;
+            border-radius: 10px;
+            background: rgba(139, 115, 85, 0.1);
             color: var(--accent);
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.3px;
+        }
+
+        .link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            border: 1px solid #e2d9ce;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-        }
-
-        .additional-card a:hover {
-            gap: 10px;
             color: var(--dark);
+            font-size: 0.92rem;
+            transition: all 0.2s ease;
+            background: rgba(250, 248, 243, 0.7);
         }
 
-        /* Footer */
-        .footer {
-            background: white;
-            color: #5a5450;
-            padding: 70px 24px;
+        .link:hover { border-color: var(--accent); color: var(--accent); }
+
+        .stack {
+            display: grid;
+            gap: 8px;
+        }
+
+        .resource-card {
+            padding: 18px;
+            border-radius: 14px;
+            border: 1px solid #e2d9ce;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 12px 26px rgba(42, 37, 32, 0.05);
+            display: grid;
+            gap: 10px;
+        }
+
+        .resource-icon {
+            font-size: 1.6rem;
+        }
+
+        .resource-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .resource-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .resource-text {
+            color: var(--muted);
+        }
+
+        .link-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        footer {
             text-align: center;
-            border-top: 1px solid #e0d9ce;
+            padding: 40px 0 50px;
+            color: var(--muted);
+            font-size: 0.95rem;
         }
 
-        .footer p {
-            font-size: 0.9rem;
-            line-height: 1.8;
-            margin-bottom: 10px;
-        }
+        footer p + p { margin-top: 6px; }
 
-        /* Back to Top Button */
         #backToTop {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--dark);
-            color: white;
-            width: 50px;
-            height: 50px;
+            bottom: 24px;
+            right: 24px;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
-            border: none;
-            cursor: pointer;
+            border: 1px solid #d8ccba;
+            background: var(--dark);
+            color: #fff;
+            font-size: 1.2rem;
             display: none;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-            z-index: 1000;
+            cursor: pointer;
+            box-shadow: 0 12px 24px rgba(42, 37, 32, 0.2);
+            transition: transform 0.2s ease, background 0.2s ease;
+            z-index: 20;
         }
 
-        #backToTop:hover {
-            background: var(--accent);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        #backToTop.show { display: inline-flex; }
+        #backToTop:hover { transform: translateY(-2px); background: var(--accent); }
+
+        @media (max-width: 900px) {
+            .section-head { flex-direction: column; }
+            header { position: sticky; }
         }
 
-        #backToTop.show {
-            display: flex;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .hero-content {
-                text-align: center;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 60px 16px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 0.9rem;
-            }
-
-            .section {
-                padding: 60px 16px;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .resource-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .resource-card {
-                padding: 28px;
-            }
-
-            .vclass-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-content {
-                padding: 32px;
-            }
-
-            .featured-content h2 {
-                font-size: 1.5rem;
-            }
-
-            .additional-card {
-                padding: 28px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.4rem;
-            }
-
-            .hero p {
-                font-size: 0.8rem;
-            }
-
-            .section-title {
-                font-size: 1.4rem;
-            }
-
-            .resource-card {
-                padding: 20px;
-            }
-
-            .resource-title {
-                font-size: 1rem;
-            }
-
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.8rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .resource-icon {
-                font-size: 1.8rem;
-            }
-
-            .vclass-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 640px) {
+            .nav-actions { display: none; }
+            .hero { padding: 60px 0 40px; }
+            .section-shell { padding: 22px; }
+            .card, .resource-card { padding: 16px; }
+            .btn { width: 100%; justify-content: center; }
+            .cta-row { flex-direction: column; }
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-content">
-            <div class="navbar-brand">ASEP DAO</div>
-            <div class="navbar-tagline">Learning Platform</div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Materi Kuliah Informatika Berkualitas Tinggi</h1>
-                <p>Akses ribuan jam video pembelajaran, PDF, dan materi kuliah gratis dari institusi terkemuka seperti ITB, UI, dan universitas terbaik di seluruh Indonesia.</p>
-                <div class="hero-buttons">
-                    <a href="#vclass" class="btn btn-primary">Akses VClass</a>
-                    <a href="#resources" class="btn btn-secondary">Jelajahi Materi</a>
-                </div>
+    <header>
+        <div class="container nav-bar">
+            <div class="brand">
+                <span class="brand-mark">ASEP DAO</span>
+                <span class="brand-tagline">Learning platform • Informatika</span>
             </div>
-            <div class="hero-svg">
-                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 500px; height: auto;" role="img" aria-labelledby="heroSvgTitle">
-                    <title id="heroSvgTitle">Mahasiswa Belajar Ilmu Komputer dengan Laptop dan Materi Pendidikan</title>
-                    <defs>
-                        <!-- Gradients for modern look -->
-                        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#faf8f3;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#f5f3f0;stop-opacity:1" />
-                        </linearGradient>
-                        <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#8b7355;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#6b5335;stop-opacity:1" />
-                        </linearGradient>
-                        <radialGradient id="lightGlow" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" style="stop-color:#fff5e6;stop-opacity:0.8" />
-                            <stop offset="100%" style="stop-color:#fff5e6;stop-opacity:0" />
-                        </radialGradient>
-                    </defs>
-                    
-                    <!-- Background with gradient -->
-                    <circle cx="250" cy="250" r="220" fill="url(#bgGradient)" opacity="0.6"/>
-                    <circle cx="250" cy="250" r="180" fill="url(#lightGlow)"/>
-                    
-                    <!-- Decorative circles (floating elements) -->
-                    <circle class="svg-float" cx="80" cy="100" r="15" fill="#e8dcc8" opacity="0.5"/>
-                    <circle class="svg-float" cx="420" cy="120" r="20" fill="#8b7355" opacity="0.3"/>
-                    <circle class="svg-float" cx="60" cy="380" r="12" fill="#8b7355" opacity="0.4"/>
-                    <circle class="svg-float" cx="440" cy="370" r="18" fill="#e8dcc8" opacity="0.5"/>
-                    
-                    <!-- Central laptop/screen with knowledge -->
-                    <g class="svg-fade">
-                        <!-- Laptop base -->
-                        <rect x="180" y="260" width="140" height="95" rx="8" fill="#2a2520" stroke="#8b7355" stroke-width="2"/>
-                        <!-- Screen content with gradient -->
-                        <rect x="190" y="270" width="120" height="70" rx="4" fill="url(#accentGradient)" opacity="0.9"/>
-                        <!-- Code lines on screen -->
-                        <line x1="200" y1="285" x2="280" y2="285" stroke="#faf8f3" stroke-width="2" opacity="0.8"/>
-                        <line x1="200" y1="295" x2="260" y2="295" stroke="#faf8f3" stroke-width="2" opacity="0.7"/>
-                        <line x1="200" y1="305" x2="290" y2="305" stroke="#faf8f3" stroke-width="2" opacity="0.8"/>
-                        <line x1="200" y1="315" x2="270" y2="315" stroke="#faf8f3" stroke-width="2" opacity="0.7"/>
-                        <line x1="200" y1="325" x2="285" y2="325" stroke="#faf8f3" stroke-width="2" opacity="0.8"/>
-                        <!-- Keyboard hint -->
-                        <rect x="185" y="342" width="130" height="8" rx="3" fill="#8b7355" opacity="0.5"/>
-                    </g>
-                    
-                    <!-- Person 1 (Left) - Student with book -->
-                    <g class="svg-fade">
-                        <!-- Body -->
-                        <ellipse cx="120" cy="200" rx="25" ry="35" fill="#e8dcc8"/>
-                        <!-- Head -->
-                        <circle cx="120" cy="150" r="22" fill="#8b7355"/>
-                        <!-- Face details -->
-                        <circle cx="113" cy="148" r="2.5" fill="#2a2520"/>
-                        <circle cx="127" cy="148" r="2.5" fill="#2a2520"/>
-                        <path d="M 113 158 Q 120 162 127 158" stroke="#2a2520" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                        <!-- Arms -->
-                        <ellipse cx="95" cy="190" rx="8" ry="20" fill="#e8dcc8" transform="rotate(-20 95 190)"/>
-                        <ellipse cx="145" cy="190" rx="8" ry="20" fill="#e8dcc8" transform="rotate(20 145 190)"/>
-                        <!-- Book in hands -->
-                        <rect x="105" y="210" width="30" height="22" rx="2" fill="#8b7355" stroke="#2a2520" stroke-width="1.5"/>
-                        <line x1="120" y1="210" x2="120" y2="232" stroke="#2a2520" stroke-width="1"/>
-                        <!-- Legs -->
-                        <ellipse cx="110" cy="245" rx="8" ry="20" fill="#e8dcc8"/>
-                        <ellipse cx="130" cy="245" rx="8" ry="20" fill="#e8dcc8"/>
-                    </g>
-                    
-                    <!-- Person 2 (Right) - Student with graduation cap -->
-                    <g class="svg-fade">
-                        <!-- Body -->
-                        <ellipse cx="380" cy="200" rx="25" ry="35" fill="#e8dcc8"/>
-                        <!-- Head -->
-                        <circle cx="380" cy="150" r="22" fill="#8b7355"/>
-                        <!-- Graduation cap -->
-                        <rect x="360" y="130" width="40" height="6" rx="3" fill="#2a2520"/>
-                        <polygon points="350,136 410,136 380,120" fill="#2a2520"/>
-                        <circle cx="380" cy="128" r="3" fill="#8b7355"/>
-                        <line x1="380" y1="128" x2="395" y2="115" stroke="#8b7355" stroke-width="1.5"/>
-                        <!-- Face details -->
-                        <circle cx="373" cy="148" r="2.5" fill="#2a2520"/>
-                        <circle cx="387" cy="148" r="2.5" fill="#2a2520"/>
-                        <path d="M 373 158 Q 380 162 387 158" stroke="#2a2520" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                        <!-- Arms raised in celebration -->
-                        <ellipse cx="355" cy="180" rx="8" ry="22" fill="#e8dcc8" transform="rotate(-40 355 180)"/>
-                        <ellipse cx="405" cy="180" rx="8" ry="22" fill="#e8dcc8" transform="rotate(40 405 180)"/>
-                        <!-- Legs -->
-                        <ellipse cx="370" cy="245" rx="8" ry="20" fill="#e8dcc8"/>
-                        <ellipse cx="390" cy="245" rx="8" ry="20" fill="#e8dcc8"/>
-                    </g>
-                    
-                    <!-- Floating educational icons -->
-                    <g class="svg-float" opacity="0.7">
-                        <!-- Lightbulb (idea) -->
-                        <circle cx="250" cy="120" r="12" fill="#fff5e6" stroke="#8b7355" stroke-width="2"/>
-                        <rect x="246" y="132" width="8" height="6" rx="2" fill="#8b7355"/>
-                        <line x1="250" y1="110" x2="250" y2="104" stroke="#8b7355" stroke-width="2"/>
-                        <line x1="258" y1="114" x2="262" y2="108" stroke="#8b7355" stroke-width="2"/>
-                        <line x1="242" y1="114" x2="238" y2="108" stroke="#8b7355" stroke-width="2"/>
-                    </g>
-                    
-                    <!-- Books stack -->
-                    <g opacity="0.8">
-                        <rect x="70" y="290" width="45" height="8" rx="2" fill="#8b7355"/>
-                        <rect x="68" y="298" width="48" height="8" rx="2" fill="#e8dcc8" stroke="#8b7355" stroke-width="1"/>
-                        <rect x="72" y="306" width="42" height="8" rx="2" fill="#8b7355"/>
-                    </g>
-                    
-                    <!-- Certificate/diploma -->
-                    <g opacity="0.75">
-                        <rect x="385" y="300" width="50" height="35" rx="3" fill="#faf8f3" stroke="#8b7355" stroke-width="2"/>
-                        <circle cx="410" cy="317" r="8" fill="none" stroke="#8b7355" stroke-width="1.5"/>
-                        <path d="M 405 317 L 408 320 L 415 313" stroke="#8b7355" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                        <line x1="392" y1="327" x2="428" y2="327" stroke="#8b7355" stroke-width="1" opacity="0.5"/>
-                    </g>
-                    
-                    <!-- Decorative dots pattern -->
-                    <circle cx="150" cy="380" r="4" fill="#8b7355" opacity="0.3"/>
-                    <circle cx="165" cy="390" r="3" fill="#8b7355" opacity="0.3"/>
-                    <circle cx="180" cy="385" r="3" fill="#8b7355" opacity="0.3"/>
-                    <circle cx="320" cy="380" r="4" fill="#8b7355" opacity="0.3"/>
-                    <circle cx="335" cy="390" r="3" fill="#8b7355" opacity="0.3"/>
-                    <circle cx="350" cy="385" r="3" fill="#8b7355" opacity="0.3"/>
-                    
-                    <!-- Connecting curved lines (knowledge flow) -->
-                    <path d="M 140 220 Q 180 240 200 260" stroke="#8b7355" stroke-width="2" opacity="0.2" fill="none" stroke-dasharray="5,5"/>
-                    <path d="M 360 220 Q 320 240 300 260" stroke="#8b7355" stroke-width="2" opacity="0.2" fill="none" stroke-dasharray="5,5"/>
-                    <path d="M 250 140 Q 250 180 250 260" stroke="#8b7355" stroke-width="2" opacity="0.2" fill="none" stroke-dasharray="5,5"/>
-                </svg>
+            <div class="nav-actions">
+                <a class="btn btn-ghost" href="#resources">Materi</a>
+                <a class="btn btn-solid" href="#vclass">Akses VClass</a>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Featured Section -->
-    <section class="featured" id="featured">
-        <div class="featured-content">
-            <h2>Akses Semua Materi Sekaligus</h2>
-            <p>Koleksi lengkap materi jurusan Ilmu Komputer tahun 2025 dalam satu tempat. Ribuan file PDF, video pembelajaran, dan sumber daya akademik lainnya tersedia untuk diunduh gratis.</p>
-            <a href="https://s.id/ArsipMateriJurusanIlmuKomputer2025" target="_blank" class="btn btn-primary">Buka Arsip Lengkap →</a>
-        </div>
-    </section>
-
-    <!-- VClass Section -->
-    <section class="vclass-section" id="vclass">
-        <div class="vclass-container">
-            <div class="vclass-header">
-                <h2 class="vclass-title">Akses Kelas VClass Unila</h2>
-                <p class="vclass-subtitle">Daftar kelas online semester 2025/2026 Genap untuk program S1 Ilmu Komputer</p>
-            </div>
-            <div class="vclass-grid">
-                <div class="vclass-card">
-                    <div class="vclass-card-title">Matematika Diskrit B</div>
-                    <a href="https://vclass.unila.ac.id/enrol/index.php?id=42899" target="_blank" class="vclass-card-link">Daftar Kelas →</a>
-                </div>
-                <div class="vclass-card">
-                    <div class="vclass-card-title">Bahasa Indonesia B</div>
-                    <a href="https://vclass.unila.ac.id/enrol/index.php?id=42898" target="_blank" class="vclass-card-link">Daftar Kelas →</a>
-                </div>
-                <div class="vclass-card">
-                    <div class="vclass-card-title">Aljabar Linier B</div>
-                    <a href="https://vclass.unila.ac.id/enrol/index.php?id=42892" target="_blank" class="vclass-card-link">Daftar Kelas →</a>
-                </div>
-                <div class="vclass-card">
-                    <div class="vclass-card-title">Organisasi dan Arsitektur Komputer B</div>
-                    <a href="https://vclass.unila.ac.id/enrol/index.php?id=42891" target="_blank" class="vclass-card-link">Daftar Kelas →</a>
-                </div>
-                <div class="vclass-card">
-                    <div class="vclass-card-title">Struktur Data B</div>
-                    <a href="https://vclass.unila.ac.id/enrol/index.php?id=42890" target="_blank" class="vclass-card-link">Daftar Kelas →</a>
-                </div>
-                <div class="vclass-card">
-                    <div class="vclass-card-title">Basis Data B</div>
-                    <a href="https://vclass.unila.ac.id/enrol/index.php?id=42889" target="_blank" class="vclass-card-link">Daftar Kelas →</a>
-                </div>
-                <div class="vclass-card">
-                    <div class="vclass-card-title">Algoritma Pemrograman B</div>
-                    <a href="https://vclass.unila.ac.id/enrol/index.php?id=42897" target="_blank" class="vclass-card-link">Daftar Kelas →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main Resources Section -->
-    <section class="section" id="resources">
-        <div class="section-content">
-            <div class="section-header">
-                <h2 class="section-title">Sumber Belajar Tambahan</h2>
-                <p class="section-subtitle">Enam mata kuliah fundamental dengan sumber belajar berkualitas tinggi dari pengajar berpengalaman dan institusi ternama.</p>
-            </div>
-
-            <div class="resource-grid">
-                <!-- Matematika Diskrit -->
-                <div class="resource-card">
-                    <div class="resource-icon">🔢</div>
-                    <h3 class="resource-title">Matematika Diskrit</h3>
-                    <p class="resource-instructor">Rinaldi Munir • ITB</p>
-                    <p class="resource-description">Teori himpunan, logika proposisional, relasi, fungsi, kombinatorik, dan teori graf. Fondasi matematika untuk ilmu komputer.</p>
-                    <span class="resource-type">VIDEO + PDF</span>
-                    <div class="resource-links">
-                        <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3pMu_kUSlzPQwi49dSRpUbb" target="_blank" class="link-btn">▶ YouTube</a>
-                        <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/Matdis/matdis.htm" target="_blank" class="link-btn">📄 Materi</a>
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <span class="eyebrow">2025 • Ilmu Komputer</span>
+                    <h1>Materi Kuliah Informatika Berkualitas Tinggi</h1>
+                    <p>Akses ribuan jam video pembelajaran, PDF, dan materi kuliah gratis dari institusi terkemuka seperti ITB, UI, dan universitas terbaik di seluruh Indonesia.</p>
+                    <div class="cta-row">
+                        <a href="https://s.id/ArsipMateriJurusanIlmuKomputer2025" target="_blank" class="btn btn-solid">Buka Arsip Lengkap →</a>
+                        <a href="#resources" class="btn btn-ghost">Jelajahi Materi</a>
+                    </div>
+                    <div class="chips">
+                        <span class="chip">Video Pembelajaran</span>
+                        <span class="chip">PDF & Slide</span>
+                        <span class="chip">VClass Unila</span>
                     </div>
                 </div>
-
-                <!-- Aljabar Linier -->
-                <div class="resource-card">
-                    <div class="resource-icon">⬜</div>
-                    <h3 class="resource-title">Aljabar Linier</h3>
-                    <p class="resource-instructor">Rinaldi Munir • ITB & UI OCW</p>
-                    <p class="resource-description">Matriks, vektor, sistem persamaan linier, eigenvalue, dan transformasi linier. Esensial untuk grafis komputer dan machine learning.</p>
-                    <span class="resource-type">VIDEO + PDF</span>
-                    <div class="resource-links">
-                        <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3qTl3QVfFBVR9IbC9csY1Cg" target="_blank" class="link-btn">▶ YouTube</a>
-                        <a href="https://ocw.ui.ac.id/course/view.php?id=32" target="_blank" class="link-btn">🎓 OCW UI</a>
-                    </div>
-                </div>
-
-                <!-- Struktur Data -->
-                <div class="resource-card">
-                    <div class="resource-icon">🌳</div>
-                    <h3 class="resource-title">Struktur Data</h3>
-                    <p class="resource-instructor">Indonesia Belajar • Rekaman Kuliah</p>
-                    <p class="resource-description">Array, linked list, stack, queue, tree, graph, dan analisis kompleksitas algoritma. Materi kuliah lengkap dan mendalam.</p>
-                    <span class="resource-type">VIDEO TUTORIAL</span>
-                    <div class="resource-links">
-                        <a href="https://www.youtube.com/playlist?list=PL2O3HdJI4voEOEB5ecXtCTayzXSB8b3KZ" target="_blank" class="link-btn">▶ Tonton Playlist</a>
-                    </div>
-                </div>
-
-                <!-- Algoritma Pemrograman -->
-                <div class="resource-card">
-                    <div class="resource-icon">⚙️</div>
-                    <h3 class="resource-title">Algoritma Pemrograman</h3>
-                    <p class="resource-instructor">Rinaldi Munir & Sandhika Galih</p>
-                    <p class="resource-description">Notasi algoritma, pseudocode, analisis kompleksitas, dan strategi pemecahan masalah. Dari dasar hingga advanced.</p>
-                    <span class="resource-type">VIDEO + PDF</span>
-                    <div class="resource-links">
-                        <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3pdFjgNZU9sO3Lg0uezCTeW" target="_blank" class="link-btn">▶ Advanced</a>
-                        <a href="https://www.youtube.com/playlist?list=PLFIM0718LjIWuXvO0S0I0v_6X43I7vI1v" target="_blank" class="link-btn">▶ Basic</a>
-                    </div>
-                </div>
-
-                <!-- Basis Data -->
-                <div class="resource-card">
-                    <div class="resource-icon">🗄️</div>
-                    <h3 class="resource-title">Basis Data</h3>
-                    <p class="resource-instructor">Web Programming UNPAS & UINSU</p>
-                    <p class="resource-description">SQL, relational database, normalisasi, perancangan basis data, dan optimasi query. Praktik langsung dengan contoh nyata.</p>
-                    <span class="resource-type">VIDEO + PDF</span>
-                    <div class="resource-links">
-                        <a href="https://www.youtube.com/playlist?list=PLFIM0718LjIVuXvO0S0I0v_6X43I7vI1v" target="_blank" class="link-btn">▶ YouTube SQL</a>
-                        <a href="http://repository.uinsu.ac.id/14206/1/Buku%20Digital%20-%20BUKU%20AJAR%20BASIS%20DATA.pdf" target="_blank" class="link-btn">📄 Buku Ajar</a>
-                    </div>
-                </div>
-
-                <!-- Organisasi & Arsitektur Komputer -->
-                <div class="resource-card">
-                    <div class="resource-icon">🖥️</div>
-                    <h3 class="resource-title">Org. & Arsitektur Komputer</h3>
-                    <p class="resource-instructor">Rinaldi Munir & Tutorial Mas Arif</p>
-                    <p class="resource-description">Arsitektur Von Neumann, CPU, memori, I/O system, dan organisasi hardware. Pemahaman mendalam tentang cara kerja komputer.</p>
-                    <span class="resource-type">VIDEO + PDF</span>
-                    <div class="resource-links">
-                        <a href="https://www.youtube.com/playlist?list=PLOOyvLFiJe22zDKhVwxK8jK1v_sUynCxQ" target="_blank" class="link-btn">▶ YouTube</a>
-                        <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/PTI/2013-2014/KU1072_SistemKomputerdanJaringan.pdf" target="_blank" class="link-btn">📄 Materi PDF</a>
+                <div class="hero-card">
+                    <h3>Fokus pada data, tema tetap hangat</h3>
+                    <ul class="hero-list">
+                        <li>Ribuan jam konten belajar gratis dengan akses terbuka.</li>
+                        <li>Materi kuliah dari ITB, UI, UNILA, dan pengajar berpengalaman.</li>
+                        <li>7 kelas VClass Unila semester 2025/2026 Genap siap diakses.</li>
+                    </ul>
+                    <div class="pill-row">
+                        <span class="pill">PDF & Video</span>
+                        <span class="pill">Rekomendasi Dosen</span>
+                        <span class="pill">Komplet S1 Ilkom</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Additional Resources -->
-    <section class="additional">
-        <div class="additional-content">
-            <div class="section-header">
-                <h2 class="section-title">Sumber Daya Tambahan</h2>
-                <p class="section-subtitle">Portal resmi dan website akademik dari institusi terkemuka Indonesia.</p>
-            </div>
-
-            <div class="additional-grid">
-                <div class="additional-card">
-                    <h3>UI Open CourseWare</h3>
-                    <p>Portal resmi Universitas Indonesia yang menyediakan materi kuliah gratis dari berbagai pakar dan dosen berpengalaman di bidangnya masing-masing.</p>
-                    <a href="https://ocw.ui.ac.id/course/index.php?categoryid=12" target="_blank">Kunjungi OCW UI →</a>
-                </div>
-                <div class="additional-card">
-                    <h3>Rinaldi Munir Homepage</h3>
-                    <p>Website personal Rinaldi Munir dengan koleksi lengkap materi kuliah, slide presentasi, video, dan berbagai sumber daya akademik dari ITB.</p>
-                    <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/" target="_blank">Kunjungi Homepage →</a>
+        <section class="card-section" id="featured">
+            <div class="container section-shell">
+                <div class="section-head">
+                    <div>
+                        <h2>Akses Semua Materi Sekaligus</h2>
+                        <p>Koleksi lengkap materi jurusan Ilmu Komputer tahun 2025 dalam satu tempat. Ribuan file PDF, video pembelajaran, dan sumber daya akademik lainnya tersedia untuk diunduh gratis.</p>
+                    </div>
+                    <div>
+                        <a href="https://s.id/ArsipMateriJurusanIlmuKomputer2025" target="_blank" class="btn btn-solid">Buka Arsip Lengkap →</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+        <section class="card-section" id="vclass">
+            <div class="container section-shell">
+                <div class="section-head">
+                    <div>
+                        <h2>Akses Kelas VClass Unila</h2>
+                        <p>Daftar kelas online semester 2025/2026 Genap untuk program S1 Ilmu Komputer.</p>
+                    </div>
+                    <span class="tag">VClass 2025/2026</span>
+                </div>
+                <div class="grid grid-3">
+                    <div class="card">
+                        <div class="card-title">Matematika Diskrit B</div>
+                        <div class="card-sub">Kelas matematika dasar untuk logika dan struktur diskrit.</div>
+                        <a href="https://vclass.unila.ac.id/enrol/index.php?id=42899" target="_blank" class="link">Daftar Kelas →</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Bahasa Indonesia B</div>
+                        <div class="card-sub">Penguatan komunikasi akademik dalam bahasa Indonesia.</div>
+                        <a href="https://vclass.unila.ac.id/enrol/index.php?id=42898" target="_blank" class="link">Daftar Kelas →</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Aljabar Linier B</div>
+                        <div class="card-sub">Matriks, vektor, dan transformasi linier untuk komputasi.</div>
+                        <a href="https://vclass.unila.ac.id/enrol/index.php?id=42892" target="_blank" class="link">Daftar Kelas →</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Organisasi dan Arsitektur Komputer B</div>
+                        <div class="card-sub">Struktur perangkat keras dan cara kerja sistem komputer.</div>
+                        <a href="https://vclass.unila.ac.id/enrol/index.php?id=42891" target="_blank" class="link">Daftar Kelas →</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Struktur Data B</div>
+                        <div class="card-sub">Pondasi struktur data untuk pemrograman dan algoritma.</div>
+                        <a href="https://vclass.unila.ac.id/enrol/index.php?id=42890" target="_blank" class="link">Daftar Kelas →</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Basis Data B</div>
+                        <div class="card-sub">Desain, normalisasi, dan implementasi basis data relasional.</div>
+                        <a href="https://vclass.unila.ac.id/enrol/index.php?id=42889" target="_blank" class="link">Daftar Kelas →</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Algoritma Pemrograman B</div>
+                        <div class="card-sub">Analisis kompleksitas dan strategi pemecahan masalah.</div>
+                        <a href="https://vclass.unila.ac.id/enrol/index.php?id=42897" target="_blank" class="link">Daftar Kelas →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card-section" id="resources">
+            <div class="container section-shell">
+                <div class="section-head">
+                    <div>
+                        <h2>Sumber Belajar Tambahan</h2>
+                        <p>Enam mata kuliah fundamental dengan sumber belajar berkualitas tinggi dari pengajar berpengalaman dan institusi ternama.</p>
+                    </div>
+                    <span class="tag">PDF • Video</span>
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="resource-card">
+                        <div class="resource-icon">🔢</div>
+                        <div class="resource-title">Matematika Diskrit</div>
+                        <div class="resource-meta">
+                            <span class="tag">Rinaldi Munir • ITB</span>
+                            <span class="tag">Video + PDF</span>
+                        </div>
+                        <div class="resource-text">Teori himpunan, logika proposisional, relasi, fungsi, kombinatorik, dan teori graf. Fondasi matematika untuk ilmu komputer.</div>
+                        <div class="link-row">
+                            <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3pMu_kUSlzPQwi49dSRpUbb" target="_blank" class="link">▶ YouTube</a>
+                            <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/Matdis/matdis.htm" target="_blank" class="link">📄 Materi</a>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">⬜</div>
+                        <div class="resource-title">Aljabar Linier</div>
+                        <div class="resource-meta">
+                            <span class="tag">Rinaldi Munir • ITB & UI OCW</span>
+                            <span class="tag">Video + PDF</span>
+                        </div>
+                        <div class="resource-text">Matriks, vektor, sistem persamaan linier, eigenvalue, dan transformasi linier. Esensial untuk grafis komputer dan machine learning.</div>
+                        <div class="link-row">
+                            <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3qTl3QVfFBVR9IbC9csY1Cg" target="_blank" class="link">▶ YouTube</a>
+                            <a href="https://ocw.ui.ac.id/course/view.php?id=32" target="_blank" class="link">🎓 OCW UI</a>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">🌳</div>
+                        <div class="resource-title">Struktur Data</div>
+                        <div class="resource-meta">
+                            <span class="tag">Indonesia Belajar • Rekaman Kuliah</span>
+                            <span class="tag">Video Tutorial</span>
+                        </div>
+                        <div class="resource-text">Array, linked list, stack, queue, tree, graph, dan analisis kompleksitas algoritma. Materi kuliah lengkap dan mendalam.</div>
+                        <div class="link-row">
+                            <a href="https://www.youtube.com/playlist?list=PL2O3HdJI4voEOEB5ecXtCTayzXSB8b3KZ" target="_blank" class="link">▶ Tonton Playlist</a>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">⚙️</div>
+                        <div class="resource-title">Algoritma Pemrograman</div>
+                        <div class="resource-meta">
+                            <span class="tag">Rinaldi Munir &amp; Sandhika Galih</span>
+                            <span class="tag">Video + PDF</span>
+                        </div>
+                        <div class="resource-text">Notasi algoritma, pseudocode, analisis kompleksitas, dan strategi pemecahan masalah. Dari dasar hingga advanced.</div>
+                        <div class="link-row">
+                            <a href="https://www.youtube.com/playlist?list=PLyYkJZR4un3pdFjgNZU9sO3Lg0uezCTeW" target="_blank" class="link">▶ Advanced</a>
+                            <a href="https://www.youtube.com/playlist?list=PLFIM0718LjIWuXvO0S0I0v_6X43I7vI1v" target="_blank" class="link">▶ Basic</a>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">🗄️</div>
+                        <div class="resource-title">Basis Data</div>
+                        <div class="resource-meta">
+                            <span class="tag">Web Programming UNPAS &amp; UINSU</span>
+                            <span class="tag">Video + PDF</span>
+                        </div>
+                        <div class="resource-text">SQL, relational database, normalisasi, perancangan basis data, dan optimasi query. Praktik langsung dengan contoh nyata.</div>
+                        <div class="link-row">
+                            <a href="https://www.youtube.com/playlist?list=PLFIM0718LjIVuXvO0S0I0v_6X43I7vI1v" target="_blank" class="link">▶ YouTube SQL</a>
+                            <a href="http://repository.uinsu.ac.id/14206/1/Buku%20Digital%20-%20BUKU%20AJAR%20BASIS%20DATA.pdf" target="_blank" class="link">📄 Buku Ajar</a>
+                        </div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">🖥️</div>
+                        <div class="resource-title">Org. &amp; Arsitektur Komputer</div>
+                        <div class="resource-meta">
+                            <span class="tag">Rinaldi Munir &amp; Tutorial Mas Arif</span>
+                            <span class="tag">Video + PDF</span>
+                        </div>
+                        <div class="resource-text">Arsitektur Von Neumann, CPU, memori, I/O system, dan organisasi hardware. Pemahaman mendalam tentang cara kerja komputer.</div>
+                        <div class="link-row">
+                            <a href="https://www.youtube.com/playlist?list=PLOOyvLFiJe22zDKhVwxK8jK1v_sUynCxQ" target="_blank" class="link">▶ YouTube</a>
+                            <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/PTI/2013-2014/KU1072_SistemKomputerdanJaringan.pdf" target="_blank" class="link">📄 Materi PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card-section" id="additional">
+            <div class="container section-shell">
+                <div class="section-head">
+                    <div>
+                        <h2>Sumber Daya Tambahan</h2>
+                        <p>Portal resmi dan website akademik dari institusi terkemuka Indonesia.</p>
+                    </div>
+                    <span class="tag">Portal Resmi</span>
+                </div>
+                <div class="grid grid-2">
+                    <div class="card">
+                        <div class="card-title">UI Open CourseWare</div>
+                        <div class="card-sub">Portal resmi Universitas Indonesia yang menyediakan materi kuliah gratis dari berbagai pakar dan dosen berpengalaman di bidangnya masing-masing.</div>
+                        <a href="https://ocw.ui.ac.id/course/index.php?categoryid=12" target="_blank" class="link">Kunjungi OCW UI →</a>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Rinaldi Munir Homepage</div>
+                        <div class="card-sub">Website personal Rinaldi Munir dengan koleksi lengkap materi kuliah, slide presentasi, video, dan berbagai sumber daya akademik dari ITB.</div>
+                        <a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/" target="_blank" class="link">Kunjungi Homepage →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
         <p>✨ Semua sumber belajar di atas bersifat gratis dan dapat diakses oleh siapa saja tanpa batasan.</p>
-        <p>Dibuat dengan dedikasi untuk mendukung pembelajaran informatika berkualitas di Indonesia</p>
+        <p>Dibuat dengan dedikasi untuk mendukung pembelajaran informatika berkualitas di Indonesia.</p>
     </footer>
 
-    <!-- Back to Top Button -->
     <button id="backToTop" title="Kembali ke atas" aria-label="Kembali ke atas">↑</button>
 
     <script>
-        // Back to Top Button functionality
         const backToTopButton = document.getElementById('backToTop');
-        
+
         window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
-            }
+            backToTopButton.classList.toggle('show', window.pageYOffset > 300);
         });
-        
+
         backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
-
 </body>
 </html>

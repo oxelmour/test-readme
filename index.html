@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informatika.id - Platform Belajar Informatika</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Platform belajar informatika gratis dengan ribuan jam video pembelajaran, PDF, dan materi kuliah dari institusi terkemuka seperti ITB, UI, dan universitas terbaik di Indonesia.">
+    <meta name="keywords" content="informatika, kuliah gratis, materi kuliah, ITB, UI, computer science, belajar programming, ilmu komputer, VClass Unila">
+    <meta name="author" content="Informatika.id">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://informatika.id/">
+    <meta property="og:title" content="Informatika.id - Platform Belajar Informatika Berkualitas Tinggi">
+    <meta property="og:description" content="Akses ribuan jam video pembelajaran, PDF, dan materi kuliah gratis dari institusi terkemuka seperti ITB, UI, dan universitas terbaik di Indonesia.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://informatika.id/">
+    <meta property="twitter:title" content="Informatika.id - Platform Belajar Informatika">
+    <meta property="twitter:description" content="Platform belajar informatika gratis dengan ribuan materi kuliah berkualitas tinggi dari universitas terbaik Indonesia.">
+    
+    <!-- Favicon using emoji -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -526,6 +547,37 @@
             margin-bottom: 10px;
         }
 
+        /* Back to Top Button */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--dark);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        #backToTop:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        #backToTop.show {
+            display: flex;
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .hero-container {
@@ -949,6 +1001,29 @@
         <p>✨ Semua sumber belajar di atas bersifat gratis dan dapat diakses oleh siapa saja tanpa batasan.</p>
         <p>Dibuat dengan dedikasi untuk mendukung pembelajaran informatika berkualitas di Indonesia</p>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Kembali ke atas">↑</button>
+
+    <script>
+        // Back to Top Button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 
 </body>
 </html>

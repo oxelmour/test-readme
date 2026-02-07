@@ -5,22 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informatika.id - Platform Belajar Informatika</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --cream: #faf8f3;
+            --tan: #e8dcc8;
+            --dark: #2a2520;
+            --accent: #8b7355;
+            --light-gray: #f5f3f0;
+        }
+
         * {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
 
         body {
-            background: #fafafa;
-            color: #2d3436;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Crimson Text', serif;
+            font-weight: 600;
+            letter-spacing: -0.5px;
         }
 
         /* Navbar */
         .navbar {
             background: white;
-            border-bottom: 1px solid #e8e8e8;
-            padding: 16px 0;
+            border-bottom: 1px solid #e0d9ce;
+            padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 50;
@@ -36,24 +51,27 @@
         }
 
         .navbar-brand {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            color: #2d3436;
-            letter-spacing: -0.5px;
+            color: var(--dark);
+            letter-spacing: -0.3px;
+            font-family: 'Crimson Text', serif;
         }
 
         .navbar-tagline {
-            font-size: 0.85rem;
-            color: #636e72;
+            font-size: 0.8rem;
+            color: var(--accent);
             font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         /* Hero Section */
         .hero {
             background: white;
-            padding: 80px 24px;
+            padding: 100px 24px;
             text-align: center;
-            border-bottom: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e0d9ce;
         }
 
         .hero-content {
@@ -62,95 +80,97 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            color: #2d3436;
-            letter-spacing: -1px;
+            font-size: 3.5rem;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            color: var(--dark);
         }
 
         .hero p {
-            font-size: 1.1rem;
-            color: #636e72;
-            margin-bottom: 40px;
-            line-height: 1.7;
+            font-size: 1.05rem;
+            color: #5a5450;
+            margin-bottom: 48px;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 16px;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 12px 28px;
-            border-radius: 8px;
+            padding: 14px 32px;
+            border-radius: 6px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.2s ease;
             border: none;
             cursor: pointer;
             font-size: 0.95rem;
+            letter-spacing: 0.3px;
         }
 
         .btn-primary {
-            background: #2d3436;
+            background: var(--dark);
             color: white;
         }
 
         .btn-primary:hover {
-            background: #1a1a1a;
-            transform: translateY(-2px);
+            background: var(--accent);
+            transform: translateY(-1px);
         }
 
         .btn-secondary {
-            background: #f0f0f0;
-            color: #2d3436;
-            border: 1px solid #d4d4d4;
+            background: var(--light-gray);
+            color: var(--dark);
+            border: 1px solid #d4ccc0;
         }
 
         .btn-secondary:hover {
-            background: #e8e8e8;
-            transform: translateY(-2px);
+            background: var(--tan);
+            border-color: var(--accent);
+            transform: translateY(-1px);
         }
 
         /* Featured Section */
         .featured {
-            background: #f5f5f5;
-            padding: 60px 24px;
-            border-bottom: 1px solid #e8e8e8;
+            background: var(--light-gray);
+            padding: 80px 24px;
+            border-bottom: 1px solid #e0d9ce;
         }
 
         .featured-content {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             background: white;
-            padding: 40px;
-            border-radius: 12px;
-            border: 1px solid #e8e8e8;
+            padding: 50px;
+            border-radius: 8px;
+            border: 1px solid #e0d9ce;
         }
 
         .featured-content h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 2rem;
             margin-bottom: 16px;
-            color: #2d3436;
+            color: var(--dark);
         }
 
         .featured-content p {
             font-size: 0.95rem;
-            color: #636e72;
-            margin-bottom: 24px;
-            line-height: 1.7;
+            color: #5a5450;
+            margin-bottom: 28px;
+            line-height: 1.8;
         }
 
         /* Section */
         .section {
-            padding: 80px 24px;
+            padding: 100px 24px;
             background: white;
-            border-bottom: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e0d9ce;
         }
 
         .section-content {
@@ -160,117 +180,120 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
         }
 
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #2d3436;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
         }
 
         .section-subtitle {
-            font-size: 1rem;
-            color: #636e72;
+            font-size: 0.95rem;
+            color: #5a5450;
             max-width: 700px;
             margin: 0 auto;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
         /* Resource Grid */
         .resource-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 28px;
         }
 
         .resource-card {
             background: white;
-            border: 1px solid #e8e8e8;
-            border-radius: 10px;
-            padding: 32px;
+            border: 1px solid #e0d9ce;
+            border-radius: 8px;
+            padding: 36px;
             transition: all 0.2s ease;
             display: flex;
             flex-direction: column;
         }
 
         .resource-card:hover {
-            border-color: #d4d4d4;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            border-color: var(--accent);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
             transform: translateY(-2px);
         }
 
         .resource-icon {
-            font-size: 2.5rem;
-            margin-bottom: 16px;
+            font-size: 2.2rem;
+            margin-bottom: 18px;
+            display: inline-block;
+            width: 50px;
         }
 
         .resource-title {
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 6px;
-            color: #2d3436;
+            color: var(--dark);
         }
 
         .resource-instructor {
             font-size: 0.85rem;
-            color: #636e72;
+            color: var(--accent);
             font-weight: 600;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
+            letter-spacing: 0.3px;
         }
 
         .resource-description {
             font-size: 0.9rem;
-            color: #636e72;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            color: #5a5450;
+            line-height: 1.7;
+            margin-bottom: 22px;
             flex-grow: 1;
         }
 
         .resource-type {
             display: inline-block;
             padding: 6px 12px;
-            background: #f0f0f0;
-            border-radius: 6px;
+            background: var(--light-gray);
+            border-radius: 4px;
             font-size: 0.75rem;
-            color: #636e72;
+            color: var(--accent);
             font-weight: 700;
             margin-bottom: 20px;
+            letter-spacing: 0.3px;
         }
 
         .resource-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
 
         .link-btn {
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            padding: 6px 12px;
-            background: #f0f0f0;
-            border: 1px solid #d4d4d4;
-            border-radius: 6px;
+            padding: 6px 14px;
+            background: var(--light-gray);
+            border: 1px solid #d4ccc0;
+            border-radius: 4px;
             text-decoration: none;
-            color: #2d3436;
+            color: var(--dark);
             font-size: 0.8rem;
             font-weight: 600;
             transition: all 0.2s ease;
         }
 
         .link-btn:hover {
-            background: #2d3436;
+            background: var(--accent);
             color: white;
-            border-color: #2d3436;
+            border-color: var(--accent);
         }
 
         /* Additional Resources */
         .additional {
-            background: #f5f5f5;
-            padding: 80px 24px;
-            border-bottom: 1px solid #e8e8e8;
+            background: var(--light-gray);
+            padding: 100px 24px;
+            border-bottom: 1px solid #e0d9ce;
         }
 
         .additional-content {
@@ -280,44 +303,43 @@
 
         .additional-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 36px;
+            margin-top: 60px;
         }
 
         .additional-card {
             background: white;
-            border: 1px solid #e8e8e8;
-            border-radius: 10px;
-            padding: 36px;
+            border: 1px solid #e0d9ce;
+            border-radius: 8px;
+            padding: 40px;
             transition: all 0.2s ease;
         }
 
         .additional-card:hover {
-            border-color: #d4d4d4;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            border-color: var(--accent);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
             transform: translateY(-2px);
         }
 
         .additional-card h3 {
             font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #2d3436;
+            margin-bottom: 14px;
+            color: var(--dark);
         }
 
         .additional-card p {
             font-size: 0.9rem;
-            color: #636e72;
-            margin-bottom: 20px;
-            line-height: 1.6;
+            color: #5a5450;
+            margin-bottom: 22px;
+            line-height: 1.7;
         }
 
         .additional-card a {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            color: #2d3436;
+            color: var(--accent);
             text-decoration: none;
             font-weight: 700;
             font-size: 0.9rem;
@@ -326,32 +348,32 @@
 
         .additional-card a:hover {
             gap: 10px;
-            color: #636e72;
+            color: var(--dark);
         }
 
         /* Footer */
         .footer {
             background: white;
-            color: #636e72;
-            padding: 60px 24px;
+            color: #5a5450;
+            padding: 70px 24px;
             text-align: center;
-            border-top: 1px solid #e8e8e8;
+            border-top: 1px solid #e0d9ce;
         }
 
         .footer p {
             font-size: 0.9rem;
-            line-height: 1.7;
-            margin-bottom: 8px;
+            line-height: 1.8;
+            margin-bottom: 10px;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .hero {
-                padding: 60px 16px;
+                padding: 70px 16px;
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .hero p {
@@ -359,38 +381,38 @@
             }
 
             .section {
-                padding: 60px 16px;
+                padding: 70px 16px;
             }
 
             .section-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .resource-grid {
                 grid-template-columns: 1fr;
-                gap: 16px;
+                gap: 20px;
             }
 
             .resource-card {
-                padding: 24px;
-            }
-
-            .featured-content {
                 padding: 28px;
             }
 
+            .featured-content {
+                padding: 32px;
+            }
+
             .featured-content h2 {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
 
             .additional-card {
-                padding: 24px;
+                padding: 28px;
             }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
 
             .hero p {
@@ -398,7 +420,11 @@
             }
 
             .section-title {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
+            }
+
+            .resource-card {
+                padding: 20px;
             }
 
             .resource-title {
@@ -415,7 +441,7 @@
             }
 
             .resource-icon {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -425,7 +451,7 @@
     <nav class="navbar">
         <div class="navbar-content">
             <div class="navbar-brand">Informatika.id</div>
-            <div class="navbar-tagline">Platform Belajar Terbaik</div>
+            <div class="navbar-tagline">Learning Platform</div>
         </div>
     </nav>
 

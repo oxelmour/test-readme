@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informatika.id - Platform Belajar Informatika</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Platform belajar informatika gratis dengan ribuan jam video pembelajaran, PDF, dan materi kuliah dari institusi terkemuka seperti ITB, UI, dan universitas terbaik di Indonesia.">
+    <meta name="keywords" content="informatika, kuliah gratis, materi kuliah, ITB, UI, computer science, belajar programming, ilmu komputer, VClass Unila">
+    <meta name="author" content="Informatika.id">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://informatika.id/">
+    <meta property="og:title" content="Informatika.id - Platform Belajar Informatika Berkualitas Tinggi">
+    <meta property="og:description" content="Akses ribuan jam video pembelajaran, PDF, dan materi kuliah gratis dari institusi terkemuka seperti ITB, UI, dan universitas terbaik di Indonesia.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://informatika.id/">
+    <meta property="twitter:title" content="Informatika.id - Platform Belajar Informatika">
+    <meta property="twitter:description" content="Platform belajar informatika gratis dengan ribuan materi kuliah berkualitas tinggi dari universitas terbaik Indonesia.">
+    
+    <!-- Favicon using emoji -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💻%3C/text%3E%3C/svg%3E">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -526,6 +547,37 @@
             margin-bottom: 10px;
         }
 
+        /* Back to Top Button */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--dark);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        #backToTop:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        #backToTop.show {
+            display: flex;
+        }
+
         /* Responsive */
         @media (max-width: 1024px) {
             .hero-container {
@@ -654,52 +706,131 @@
                 </div>
             </div>
             <div class="hero-svg">
-                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 400px; height: auto;">
-                    <!-- Background circle -->
-                    <circle cx="200" cy="200" r="180" fill="#f5f3f0" opacity="0.5"/>
+                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 500px; height: auto;" role="img" aria-labelledby="heroSvgTitle">
+                    <title id="heroSvgTitle">Mahasiswa Belajar Ilmu Komputer dengan Laptop dan Materi Pendidikan</title>
+                    <defs>
+                        <!-- Gradients for modern look -->
+                        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#faf8f3;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#f5f3f0;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#8b7355;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#6b5335;stop-opacity:1" />
+                        </linearGradient>
+                        <radialGradient id="lightGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" style="stop-color:#fff5e6;stop-opacity:0.8" />
+                            <stop offset="100%" style="stop-color:#fff5e6;stop-opacity:0" />
+                        </radialGradient>
+                    </defs>
                     
-                    <!-- Person 1 (Left) - Reading -->
-                    <g>
-                        <circle cx="120" cy="140" r="18" fill="#8b7355"/>
-                        <rect x="100" y="170" width="40" height="60" rx="8" fill="#e8dcc8" stroke="#8b7355" stroke-width="2"/>
-                        <rect x="95" y="165" width="50" height="8" rx="4" fill="#8b7355" opacity="0.3"/>
-                        <circle cx="100" cy="155" r="12" fill="#e8dcc8" stroke="#8b7355" stroke-width="2"/>
-                        <circle cx="140" cy="155" r="12" fill="#e8dcc8" stroke="#8b7355" stroke-width="2"/>
+                    <!-- Background with gradient -->
+                    <circle cx="250" cy="250" r="220" fill="url(#bgGradient)" opacity="0.6"/>
+                    <circle cx="250" cy="250" r="180" fill="url(#lightGlow)"/>
+                    
+                    <!-- Decorative circles (floating elements) -->
+                    <circle class="svg-float" cx="80" cy="100" r="15" fill="#e8dcc8" opacity="0.5"/>
+                    <circle class="svg-float" cx="420" cy="120" r="20" fill="#8b7355" opacity="0.3"/>
+                    <circle class="svg-float" cx="60" cy="380" r="12" fill="#8b7355" opacity="0.4"/>
+                    <circle class="svg-float" cx="440" cy="370" r="18" fill="#e8dcc8" opacity="0.5"/>
+                    
+                    <!-- Central laptop/screen with knowledge -->
+                    <g class="svg-fade">
+                        <!-- Laptop base -->
+                        <rect x="180" y="260" width="140" height="95" rx="8" fill="#2a2520" stroke="#8b7355" stroke-width="2"/>
+                        <!-- Screen content with gradient -->
+                        <rect x="190" y="270" width="120" height="70" rx="4" fill="url(#accentGradient)" opacity="0.9"/>
+                        <!-- Code lines on screen -->
+                        <line x1="200" y1="285" x2="280" y2="285" stroke="#faf8f3" stroke-width="2" opacity="0.8"/>
+                        <line x1="200" y1="295" x2="260" y2="295" stroke="#faf8f3" stroke-width="2" opacity="0.7"/>
+                        <line x1="200" y1="305" x2="290" y2="305" stroke="#faf8f3" stroke-width="2" opacity="0.8"/>
+                        <line x1="200" y1="315" x2="270" y2="315" stroke="#faf8f3" stroke-width="2" opacity="0.7"/>
+                        <line x1="200" y1="325" x2="285" y2="325" stroke="#faf8f3" stroke-width="2" opacity="0.8"/>
+                        <!-- Keyboard hint -->
+                        <rect x="185" y="342" width="130" height="8" rx="3" fill="#8b7355" opacity="0.5"/>
                     </g>
                     
-                    <!-- Person 2 (Center) - Thinking -->
-                    <g>
-                        <circle cx="200" cy="120" r="20" fill="#8b7355"/>
-                        <rect x="175" y="155" width="50" height="70" rx="8" fill="#e8dcc8" stroke="#8b7355" stroke-width="2"/>
-                        <rect x="168" y="148" width="64" height="10" rx="5" fill="#8b7355" opacity="0.3"/>
-                        <circle cx="170" cy="138" r="14" fill="#e8dcc8" stroke="#8b7355" stroke-width="2"/>
-                        <circle cx="230" cy="138" r="14" fill="#e8dcc8" stroke="#8b7355" stroke-width="2"/>
-                        <!-- Thinking bubble -->
-                        <circle cx="240" cy="100" r="8" fill="none" stroke="#8b7355" stroke-width="1.5" opacity="0.6"/>
-                        <circle cx="255" cy="85" r="6" fill="none" stroke="#8b7355" stroke-width="1.5" opacity="0.6"/>
+                    <!-- Person 1 (Left) - Student with book -->
+                    <g class="svg-fade">
+                        <!-- Body -->
+                        <ellipse cx="120" cy="200" rx="25" ry="35" fill="#e8dcc8"/>
+                        <!-- Head -->
+                        <circle cx="120" cy="150" r="22" fill="#8b7355"/>
+                        <!-- Face details -->
+                        <circle cx="113" cy="148" r="2.5" fill="#2a2520"/>
+                        <circle cx="127" cy="148" r="2.5" fill="#2a2520"/>
+                        <path d="M 113 158 Q 120 162 127 158" stroke="#2a2520" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        <!-- Arms -->
+                        <ellipse cx="95" cy="190" rx="8" ry="20" fill="#e8dcc8" transform="rotate(-20 95 190)"/>
+                        <ellipse cx="145" cy="190" rx="8" ry="20" fill="#e8dcc8" transform="rotate(20 145 190)"/>
+                        <!-- Book in hands -->
+                        <rect x="105" y="210" width="30" height="22" rx="2" fill="#8b7355" stroke="#2a2520" stroke-width="1.5"/>
+                        <line x1="120" y1="210" x2="120" y2="232" stroke="#2a2520" stroke-width="1"/>
+                        <!-- Legs -->
+                        <ellipse cx="110" cy="245" rx="8" ry="20" fill="#e8dcc8"/>
+                        <ellipse cx="130" cy="245" rx="8" ry="20" fill="#e8dcc8"/>
                     </g>
                     
-                    <!-- Person 3 (Right) - Writing -->
-                    <g>
-                        <circle cx="280" cy="145" r="18" fill="#8b7355"/>
-                        <rect x="260" y="175" width="40" height="60" rx="8" fill="#e8dcc8" stroke="#8b7355" stroke-width="2"/>
-                        <rect x="255" y="170" width="50" height="8" rx="4" fill="#8b7355" opacity="0.3"/>
-                        <circle cx="260" cy="160" r="12" fill="#e8dcc8" stroke="#8b7355" stroke-width="2"/>
-                        <circle cx="300" cy="160" r="12" fill="#e8dcc8" stroke="#8b7355" stroke-width="2"/>
-                        <!-- Pen/pencil -->
-                        <line x1="305" y1="175" x2="320" y2="160" stroke="#8b7355" stroke-width="2" stroke-linecap="round"/>
+                    <!-- Person 2 (Right) - Student with graduation cap -->
+                    <g class="svg-fade">
+                        <!-- Body -->
+                        <ellipse cx="380" cy="200" rx="25" ry="35" fill="#e8dcc8"/>
+                        <!-- Head -->
+                        <circle cx="380" cy="150" r="22" fill="#8b7355"/>
+                        <!-- Graduation cap -->
+                        <rect x="360" y="130" width="40" height="6" rx="3" fill="#2a2520"/>
+                        <polygon points="350,136 410,136 380,120" fill="#2a2520"/>
+                        <circle cx="380" cy="128" r="3" fill="#8b7355"/>
+                        <line x1="380" y1="128" x2="395" y2="115" stroke="#8b7355" stroke-width="1.5"/>
+                        <!-- Face details -->
+                        <circle cx="373" cy="148" r="2.5" fill="#2a2520"/>
+                        <circle cx="387" cy="148" r="2.5" fill="#2a2520"/>
+                        <path d="M 373 158 Q 380 162 387 158" stroke="#2a2520" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        <!-- Arms raised in celebration -->
+                        <ellipse cx="355" cy="180" rx="8" ry="22" fill="#e8dcc8" transform="rotate(-40 355 180)"/>
+                        <ellipse cx="405" cy="180" rx="8" ry="22" fill="#e8dcc8" transform="rotate(40 405 180)"/>
+                        <!-- Legs -->
+                        <ellipse cx="370" cy="245" rx="8" ry="20" fill="#e8dcc8"/>
+                        <ellipse cx="390" cy="245" rx="8" ry="20" fill="#e8dcc8"/>
                     </g>
                     
-                    <!-- Decorative elements -->
-                    <circle cx="150" cy="280" r="3" fill="#8b7355" opacity="0.4"/>
-                    <circle cx="200" cy="300" r="3" fill="#8b7355" opacity="0.4"/>
-                    <circle cx="250" cy="285" r="3" fill="#8b7355" opacity="0.4"/>
-                    <circle cx="180" cy="320" r="2" fill="#8b7355" opacity="0.3"/>
-                    <circle cx="220" cy="310" r="2" fill="#8b7355" opacity="0.3"/>
+                    <!-- Floating educational icons -->
+                    <g class="svg-float" opacity="0.7">
+                        <!-- Lightbulb (idea) -->
+                        <circle cx="250" cy="120" r="12" fill="#fff5e6" stroke="#8b7355" stroke-width="2"/>
+                        <rect x="246" y="132" width="8" height="6" rx="2" fill="#8b7355"/>
+                        <line x1="250" y1="110" x2="250" y2="104" stroke="#8b7355" stroke-width="2"/>
+                        <line x1="258" y1="114" x2="262" y2="108" stroke="#8b7355" stroke-width="2"/>
+                        <line x1="242" y1="114" x2="238" y2="108" stroke="#8b7355" stroke-width="2"/>
+                    </g>
                     
-                    <!-- Connection lines -->
-                    <line x1="140" y1="230" x2="180" y2="225" stroke="#8b7355" stroke-width="1" opacity="0.2" stroke-dasharray="5,5"/>
-                    <line x1="220" y1="225" x2="260" y2="235" stroke="#8b7355" stroke-width="1" opacity="0.2" stroke-dasharray="5,5"/>
+                    <!-- Books stack -->
+                    <g opacity="0.8">
+                        <rect x="70" y="290" width="45" height="8" rx="2" fill="#8b7355"/>
+                        <rect x="68" y="298" width="48" height="8" rx="2" fill="#e8dcc8" stroke="#8b7355" stroke-width="1"/>
+                        <rect x="72" y="306" width="42" height="8" rx="2" fill="#8b7355"/>
+                    </g>
+                    
+                    <!-- Certificate/diploma -->
+                    <g opacity="0.75">
+                        <rect x="385" y="300" width="50" height="35" rx="3" fill="#faf8f3" stroke="#8b7355" stroke-width="2"/>
+                        <circle cx="410" cy="317" r="8" fill="none" stroke="#8b7355" stroke-width="1.5"/>
+                        <path d="M 405 317 L 408 320 L 415 313" stroke="#8b7355" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        <line x1="392" y1="327" x2="428" y2="327" stroke="#8b7355" stroke-width="1" opacity="0.5"/>
+                    </g>
+                    
+                    <!-- Decorative dots pattern -->
+                    <circle cx="150" cy="380" r="4" fill="#8b7355" opacity="0.3"/>
+                    <circle cx="165" cy="390" r="3" fill="#8b7355" opacity="0.3"/>
+                    <circle cx="180" cy="385" r="3" fill="#8b7355" opacity="0.3"/>
+                    <circle cx="320" cy="380" r="4" fill="#8b7355" opacity="0.3"/>
+                    <circle cx="335" cy="390" r="3" fill="#8b7355" opacity="0.3"/>
+                    <circle cx="350" cy="385" r="3" fill="#8b7355" opacity="0.3"/>
+                    
+                    <!-- Connecting curved lines (knowledge flow) -->
+                    <path d="M 140 220 Q 180 240 200 260" stroke="#8b7355" stroke-width="2" opacity="0.2" fill="none" stroke-dasharray="5,5"/>
+                    <path d="M 360 220 Q 320 240 300 260" stroke="#8b7355" stroke-width="2" opacity="0.2" fill="none" stroke-dasharray="5,5"/>
+                    <path d="M 250 140 Q 250 180 250 260" stroke="#8b7355" stroke-width="2" opacity="0.2" fill="none" stroke-dasharray="5,5"/>
                 </svg>
             </div>
         </div>
@@ -871,6 +1002,29 @@
         <p>✨ Semua sumber belajar di atas bersifat gratis dan dapat diakses oleh siapa saja tanpa batasan.</p>
         <p>Dibuat dengan dedikasi untuk mendukung pembelajaran informatika berkualitas di Indonesia</p>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Kembali ke atas" aria-label="Kembali ke atas">↑</button>
+
+    <script>
+        // Back to Top Button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 
 </body>
 </html>
